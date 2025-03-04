@@ -3,6 +3,7 @@ import { useState } from 'react'
 import styled from 'styled-components';
 import { color } from '../../style/Color';
 import { constants } from '../../style/constant';
+import SocialMediaBar from '../SocialMediaBar/SocialMediabar';
 
 function Profile() { 
   const Name = "Vickel Leung";
@@ -13,8 +14,7 @@ function Profile() {
           <ProfileName>
             {Name}
           </ProfileName>
-          <ProfileLinks>
-          </ProfileLinks>
+          <SocialMediaBar/>
         </MainComponent>
       </ProfileComponent>
   )
