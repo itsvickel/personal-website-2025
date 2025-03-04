@@ -8,4 +8,6 @@ export const color = {
     title : "#FFFFFF",
     white: "#FFFFFF",
     lightGrey: "#848884",
+    yellow:"#F0DB4F",
+    brown:"#ad7b6a"
 }

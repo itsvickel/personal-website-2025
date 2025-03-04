@@ -13,6 +13,10 @@ function SocialMediaBar(props) {
       name: "Github",
       href: "https://www.github.com/itsvickel"
     },
+    {
+      name: "Email",
+      href: "vickelleung@gmail.com"
+    },
   ]
 
   return (

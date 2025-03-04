@@ -5,7 +5,7 @@ import { color } from '../../style/Color';
 import { constants } from '../../style/constant';
 import SocialMediaBar from '../SocialMediaBar/SocialMediabar';
 
-function Profile() { 
+function Profile(props) { 
   const Name = "Vickel Leung";
   return (
       <ProfileComponent>
@@ -16,6 +16,11 @@ function Profile() {
           </ProfileName>
           <SocialMediaBar/>
         </MainComponent>
+
+        {/* {props.about} */}
+
+        {props.work}
+
       </ProfileComponent>
   )
 }
@@ -23,15 +28,13 @@ function Profile() {
 export default Profile
 
 const ProfileComponent = styled.div`
-  height: 80%;
-  width: 80%;
+  height: 80vh;
+  width: 80vw;
   background: ${color.main};
   color: ${color.white};
   display: flex;
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: 10px 5px 5px ${color.lightGrey};
-
-  border: 1px solid ${color.main};
 `;
 
 const MainComponent = styled.div`
