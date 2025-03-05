@@ -17,9 +17,9 @@ function Profile(props) {
           <SocialMediaBar/>
         </MainComponent>
 
-        {/* {props.about} */}
+        {props.about}
 
-        {props.work}
+        {/* {props.work} */}
 
       </ProfileComponent>
   )

@@ -15,8 +15,8 @@ function Chip(props) {
 export default Chip
 
 const ChipContainer = styled.div`
-  margin: 2%;
-  padding: 4%;
+  margin: 1%;
+  padding: 2%;
   border: 1px solid ${color.white};
   border-radius: 10px;
   display: flex;

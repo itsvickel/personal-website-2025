@@ -9,6 +9,8 @@ import Work from '../../assets/briefcase.png';
 import { color } from '../../style/Color';
 import { constants } from '../../style/constant';
 
+import Button from '@mui/material/Button';
+
 function NavigationBar() { 
 
   const items = [
@@ -38,7 +40,7 @@ function NavigationBar() {
       <Container>
         {
           items.map((item, index) =>{
-            return <NavigationItem key={index}>
+            return <NavigationItem variant="text" key={index}>
               <Image src={item.image}/>
             </NavigationItem>
           })
@@ -54,7 +56,7 @@ const Container = styled.div`
   flex-direction: column;
 `
 
-const NavigationItem = styled.button`
+const NavigationItem = styled(Button)`
   border-radius: 10px;
   background: ${color.white};
   margin: 3%; 
