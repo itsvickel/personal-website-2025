@@ -30,15 +30,17 @@ function WorkExperience() {
 
   return (
       <Container>
-        <Title>
-          Work Experience
-        </Title>
+        <Header>
+          <Title>Work <Highligth>Experience</Highligth></Title>
+          <Underline />
+        </Header>
 
+      
       <RowContainer>
         <WorkContainer>
           {
             works.map((item, index) =>{
-              return <WorkItem onClick={()=>setSelectedDescription(item.description)} key={index}>
+              return <WorkItem selected={selectedDescription === item.description} onClick={()=>setSelectedDescription(item.description)} key={index}>
                 <RowContainer>
                   <div>{item.name}</div>
                   <div>{item.date}</div>
@@ -64,7 +66,6 @@ export default WorkExperience
 
 const Container = styled.div`
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
   align-items: center;
   color: black;
@@ -77,8 +78,18 @@ const Container = styled.div`
 `;
 
 const Title = styled.div`
-  font-size: ${fontSize.fontSize_2}
+  font-size: ${fontSize.fontSize_2};
+  
 `
+
+const Highligth = styled.span`
+  color: ${color.subtext}
+`
+
+const Underline = styled.div`
+  margin: 1% 0;
+  border-bottom: 1px solid ${color.brown};
+`;
 
 const WorkContainer = styled.div`
   display: flex;
@@ -92,11 +103,11 @@ const WorkItem = styled.div`
   padding: 2%;
   margin: 2%;   
   border-radius: 10px;
-  color: ${color.main}
+  color: ${props => props.selected ? color.white : color.main };
   font-size: ${fontSize.fontSize_1_2}
   display: flex;
   flex-direction: column;
-  background: ${color.greyB0B0B0}
+  background: ${props => props.selected ? color.subtext : color.greyE8E8E8 };
 `;
 
 const RowContainer = styled.div`
@@ -114,5 +125,9 @@ const WorkDescription = styled.div`
   margin: 6% 4%;
   border-radius: 10px;
   font-size: ${fontSize.fontSize_1_5};
-  background: ${color.greyB0B0B0};
+  background: ${color.greyF5F5F5};
+`;
+
+const Header = styled.div`
+  margin-right: auto;
 `;
