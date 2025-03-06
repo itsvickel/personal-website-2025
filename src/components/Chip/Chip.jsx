@@ -1,7 +1,7 @@
 import { useState } from 'react';  
 import styled from 'styled-components';
 import { color } from '../../style/Color';
-import { constants } from '../../style/constant';
+import { fontSize } from '../../style/fontSize';
 
 function Chip(props) { 
   return (
@@ -21,7 +21,7 @@ const ChipContainer = styled.div`
   border-radius: 10px;
   display: flex;
   flex-direction: row;
-  font-size: ${constants.fontSize.fontSize_1_5};
+  font-size: ${fontSize.fontSize_1_5}
   font-weight: bold;
   color: ${color.white};
   background: ${props => props.color };

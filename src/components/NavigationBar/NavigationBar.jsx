@@ -9,30 +9,37 @@ import Work from '../../assets/briefcase.png';
 import { color } from '../../style/Color';
 import { constants } from '../../style/constant';
 
+import { useNavigate } from "react-router-dom";
 import Button from '@mui/material/Button';
 
 function NavigationBar() { 
 
+  const navigate = useNavigate();
   const items = [
     {
       name: "Home",
       image: Home,
-    },
-    {
-      name: "Project",
-      image: Project,
-    },
-    {
-      name: "Hobby",
-      image: Hobby,
-    },
-    {
-      name: "Contact",
-      image: Contact,
+      link: "/"
     },
     {
       name: "Work",
       image: Work,
+      link :"/work-experience"
+    },
+    // {
+    //   name: "Project",
+    //   image: Project,
+    //   link: "/project"
+    // },
+    {
+      name: "Hobby",
+      image: Hobby,
+      link: '/hobby'
+    },
+    {
+      name: "Contact",
+      image: Contact,
+      link: "/contact"
     },
   ]
 
@@ -40,7 +47,7 @@ function NavigationBar() {
       <Container>
         {
           items.map((item, index) =>{
-            return <NavigationItem variant="text" key={index}>
+            return <NavigationItem  onClick={() => navigate(item.link)} variant="text" key={index}>
               <Image src={item.image}/>
             </NavigationItem>
           })

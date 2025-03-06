@@ -2,7 +2,7 @@ import { useState } from 'react'
 import styled from 'styled-components';
 
 import { color } from '../../style/Color'
-import { constants } from '../../style/constant';
+import { fontSize } from '../../style/fontSize';
 
 function WorkExperience() { 
   const works = [
@@ -77,7 +77,7 @@ const Container = styled.div`
 `;
 
 const Title = styled.div`
-  font-size: ${constants.fontSize.fontSize_2}
+  font-size: ${fontSize.fontSize_2}
 `
 
 const WorkContainer = styled.div`
@@ -93,7 +93,7 @@ const WorkItem = styled.div`
   margin: 2%;   
   border-radius: 10px;
   color: ${color.main}
-  font-size: ${constants.fontSize.fontSize_1_2}
+  font-size: ${fontSize.fontSize_1_2}
   display: flex;
   flex-direction: column;
   background: ${color.greyB0B0B0}
@@ -113,6 +113,6 @@ const WorkDescription = styled.div`
   padding: 3%;
   margin: 6% 4%;
   border-radius: 10px;
-  font-size: ${constants.fontSize.fontSize_1_5};
+  font-size: ${fontSize.fontSize_1_5};
   background: ${color.greyB0B0B0};
 `;

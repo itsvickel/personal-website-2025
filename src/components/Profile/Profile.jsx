@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import styled from 'styled-components';
 import { color } from '../../style/Color';
-import { constants } from '../../style/constant';
+import { fontSize } from '../../style/fontSize';
 import SocialMediaBar from '../SocialMediaBar/SocialMediabar';
 
 function Profile(props) { 
@@ -17,9 +17,11 @@ function Profile(props) {
           <SocialMediaBar/>
         </MainComponent>
 
-        {props.about}
 
-        {/* {props.work} */}
+        {props.about ? props.about : null}
+        {props.work ? props.work : null}
+        {props.contact ? props.contact : null}
+        {props.hobby ? props.hobby : null}
 
       </ProfileComponent>
   )
@@ -55,7 +57,7 @@ const ProfileImg = styled.img`
 const ProfileName = styled.div`
   width: 100%;
   margin: 2% 1%; 
-  font-size : ${constants.fontSize.fontSize_3}
+  font-size : ${fontSize.fontSize_3}
 `;
 const ProfileLinks = styled.div`
 

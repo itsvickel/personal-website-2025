@@ -2,7 +2,7 @@ import { useState } from 'react'
 import styled from 'styled-components';
 import { color } from '../../style/Color';
 import Chip from '../../components/Chip/Chip';
-import { constants } from '../../style/constant';
+import { fontSize } from '../../style/fontSize';
 
 import javascriptImg from '../../assets/java-script.png';
 import figmaImg from '../../assets/figma.png';
@@ -10,15 +10,18 @@ import css3Img from '../../assets/css-3.png';
 import htmlImg from '../../assets/html.png';
 import javaImg from '../../assets/java.png';
 import reactImg from '../../assets/atom.png';
+import weightlifting from '../../assets/weightlifting.png';
+import baseballCard from '../../assets/baseball-card.png';
+import code from '../../assets/code.png';
+import art from '../../assets/art.png';
+import photoshop from '../../assets/adobe-photoshop.png';
 
 function MySkills(props, index){
   return (
     <Container key={index}>
-      <Image>
-        {props.img}
-      </Image>
+      <Image src={props.image} />
       <SubTitle>
-        {props.subtitle}
+        {props.title}
       </SubTitle>
       <Description>
         {props.description}
@@ -40,17 +43,17 @@ function AboutMe() {
     {
       image :css3Img,
       name: "CSS3",
-      color: color.brown
+      color: color.orangee34c26
     },
     {
       image :htmlImg,
       name: "HTML5",
-      color: color.brown
+      color: color.blue264de4
     },
     {
       image :reactImg ,
       name: "ReactJS",
-      color: color.brown
+      color: color.blue61DBFB
     },
     {
       image :javaImg,
@@ -67,31 +70,36 @@ function AboutMe() {
     },
     {
       image :"",
-      name: "Java",
+      name: "Canva",
       color: color.brown
     },
     {
-      image :"",
-      name: "CSS3",
+      image : photoshop,
+      name: "Photoshop",
       color: color.brown
     }, 
   ]
 
   const whatIDo = [
     {
-      image :"",
-      name: "Programming",
-      description: 'Programming'
+      image :code,
+      title: "Programming",
+      description: 'I enjoy building websites and designing UI/UX that create smooth and enjoyable experiences for users. There’s something really satisfying about making things both functional and beautiful.'
     },
     {
-      image :"",
-      name: "3D Art",
-      description: 'Programming2'
+      image :art,
+      title: "3D Art",
+      description: 'I love creating 3D art in Blender and bringing my ideas to life. Seeing a model go from a simple shape to a fully realized piece never gets old.'
     },
     {
-      image :"",
-      name: "Programming",
-      description: 'Programming3'
+      image : weightlifting,
+      title: "Weight Lifter",
+      description: 'Weightlifting is a big part of my life—I love going to the gym and pushing myself with snatches and clean & jerks. There’s nothing like the feeling of hitting a new personal best.'
+    },
+    {
+      image : baseballCard,
+      title: "Card Collector",
+      description: 'I’m a big card collector, especially Pokémon and Magic: The Gathering. Opening packs and finding rare cards brings back the same excitement I had as a kid.'
     },
   ]
   
@@ -99,14 +107,16 @@ function AboutMe() {
       <AboutMeContainer>
         
         <Container>
-          <Title>About <Highligt>Me</Highligt></Title>
+          <Title>About <Highligth>Me</Highligth></Title>
+          <Underline />
           <Bio>
             {biographyText}
           </Bio>
         </Container>
        
         <Container>
-          <Title>Tech <Highligt>Stacks</Highligt></Title>
+          <Title>Tech <Highligth>Stacks</Highligth></Title>
+          <Underline />
           <ProgrammingLanguage>
             {Progamminglang.map((item, index)=>{
               return <Chip key={index} img={item.image} name={item.name} color={item.color} />
@@ -115,7 +125,8 @@ function AboutMe() {
         </Container>
 
         <Container>
-          <Title>Design <Highligt>Tools</Highligt></Title>
+          <Title>Design <Highligth>Tools</Highligth></Title>
+          <Underline />
           <DesignTools>
             {tools.map((item, index)=>{
               return <Chip key={index} img={item.image} name={item.name} color={item.color} />
@@ -124,7 +135,8 @@ function AboutMe() {
         </Container>
 
         <Container>
-          <Title>What I <Highligt>Do</Highligt></Title>
+          <Title>What I <Highligth>Do</Highligth></Title>
+          <Underline />
           <WhatIDo>
             {whatIDo.map((item, index) =>{
               return MySkills(item, index);
@@ -165,22 +177,32 @@ const WhatIDo = styled.div`
 
 const Container = styled.div`
   padding: 2%;
-  margin: 2% 5%;
 `
 
 const Title = styled.div`
-  font-size: ${constants.fontSize.fontSize_2}
+  font-size: ${fontSize.fontSize_2}
 `
 
-const Highligt = styled.span`
+const Highligth = styled.span`
   color: ${color.subtext}
 `
 
 const Bio = styled.div`
+  font-size : ${fontSize.fontSize_1_3}
 `
 
 const Image = styled.img``;
 
-const SubTitle = styled.div``;
+const SubTitle = styled.div`
+  font-weight: bold;
+  font-size: ${fontSize.fontSize_1_5}
+`;
 
-const Description = styled.div``;
+const Description = styled.div`
+  font-size: ${fontSize.fontSize_1_3}
+`;
+
+const Underline = styled.div`
+  margin: 1% 0;
+  border-bottom: 1px solid ${color.greyB0B0B0};
+`;
