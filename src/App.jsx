@@ -2,14 +2,27 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { color } from './style/Color';
 import Profile from './components/Profile/profile';
+import AboutMe from './pages/AboutMe/AboutMe';
+import NavigationBar from './components/NavigationBar/NavigationBar';
+import ContactMe from './pages/ContactMe/ContactMe';
+import WorkExperience from './pages/WorkExperience/WorkExperience';
+import Hobby from './pages/Hobby/Hobby';
 
-function App() { 
+function App(props) { 
 
   return (
     <MainComponent> 
+       
+      <Profile 
+        about={props.page === 'about' ? <AboutMe /> : null}
+        work={props.page === 'workExperience' ? <WorkExperience /> : null}
+        hobby={props.page === 'hobby' ? <Hobby /> : null}
+        contact={props.page === 'contact' ? <ContactMe /> : null}
+        // project={props.page === 'project' ? <Project /> : null}
+ 
+      />
       
-      <Profile />
-
+      <NavigationBar />
     </MainComponent>
   )
 }

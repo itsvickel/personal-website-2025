@@ -1,6 +1,6 @@
 import { useState } from 'react'  
 
-function NavigationBar() { 
+function Hobby() { 
   return (
     <>
       <div>
@@ -11,4 +11,4 @@ function NavigationBar() {
   )
 }
 
-export default NavigationBar
+export default Hobby

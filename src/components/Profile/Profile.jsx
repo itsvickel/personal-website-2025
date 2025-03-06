@@ -2,9 +2,10 @@ import { useState } from 'react'
 
 import styled from 'styled-components';
 import { color } from '../../style/Color';
-import { constants } from '../../style/constant';
+import { fontSize } from '../../style/fontSize';
+import SocialMediaBar from '../SocialMediaBar/SocialMediabar';
 
-function Profile() { 
+function Profile(props) { 
   const Name = "Vickel Leung";
   return (
       <ProfileComponent>
@@ -13,9 +14,15 @@ function Profile() {
           <ProfileName>
             {Name}
           </ProfileName>
-          <ProfileLinks>
-          </ProfileLinks>
+          <SocialMediaBar/>
         </MainComponent>
+
+
+        {props.about ? props.about : null}
+        {props.work ? props.work : null}
+        {props.contact ? props.contact : null}
+        {props.hobby ? props.hobby : null}
+
       </ProfileComponent>
   )
 }
@@ -23,15 +30,13 @@ function Profile() {
 export default Profile
 
 const ProfileComponent = styled.div`
-  height: 80%;
-  width: 80%;
+  height: 80vh;
+  width: 80vw;
   background: ${color.main};
   color: ${color.white};
   display: flex;
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: 10px 5px 5px ${color.lightGrey};
-
-  border: 1px solid ${color.main};
 `;
 
 const MainComponent = styled.div`
@@ -52,7 +57,7 @@ const ProfileImg = styled.img`
 const ProfileName = styled.div`
   width: 100%;
   margin: 2% 1%; 
-  font-size : ${constants.fontSize.fontSize_3}
+  font-size : ${fontSize.fontSize_3}
 `;
 const ProfileLinks = styled.div`
 

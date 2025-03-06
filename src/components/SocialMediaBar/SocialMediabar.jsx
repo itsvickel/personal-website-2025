@@ -1,15 +1,33 @@
-import { useState } from 'react'  
+import { useState } from 'react';  
+import styled from 'styled-components';
+
+import LinkItem from '../LinkItem/LinkItem';
 
 function SocialMediaBar(props) { 
+  let socialLinks = [
+    {
+      name: "Instagram",
+      href: "https://www.instagram.com/vick3l"
+    },
+    {
+      name: "Github",
+      href: "https://www.github.com/itsvickel"
+    },
+    {
+      name: "Email",
+      href: "vickelleung@gmail.com"
+    },
+  ]
+
   return (
       <SocialContainer>
           {
-           props.socialLinks.map((link) => {  
+           socialLinks.map((link, index) => {  
             return(
-              <div  key={index} className='user-data'>
-                //if you're using a table might  need to change the  `p` tag with `td` inside a `tr`
-                <p>{user.firstname} </p>
-              </div>
+              <LinkItem key={index}
+                name = {link.name}
+                href = {link.href}
+              />
             )})
           }
       </SocialContainer>
@@ -19,4 +37,7 @@ function SocialMediaBar(props) {
 
 export default SocialMediaBar
 
-const SocialContainer = styled.div``;
+const SocialContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
