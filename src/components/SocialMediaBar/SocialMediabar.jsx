@@ -40,4 +40,5 @@ export default SocialMediaBar
 const SocialContainer = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: center;
 `;

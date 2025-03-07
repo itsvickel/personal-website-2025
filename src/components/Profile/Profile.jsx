@@ -17,7 +17,7 @@ function Profile(props) {
           <SocialMediaBar/>
         </MainComponent>
 
-
+        {props.home ? props.home : null}
         {props.about ? props.about : null}
         {props.work ? props.work : null}
         {props.contact ? props.contact : null}
@@ -31,7 +31,8 @@ export default Profile
 
 const ProfileComponent = styled.div`
   height: 80vh;
-  width: 80vw;
+  min-width: 75vw;
+  max-width: 75vw;
   background: ${color.main};
   color: ${color.white};
   display: flex;
@@ -40,11 +41,13 @@ const ProfileComponent = styled.div`
 `;
 
 const MainComponent = styled.div`
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin: 2% 5%;
+  margin: 4% 2%;
+  text-align: center;
 `;
 
 const Test = styled.div``;

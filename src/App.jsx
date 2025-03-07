@@ -5,8 +5,9 @@ import Profile from './components/Profile/profile';
 import AboutMe from './pages/AboutMe/AboutMe';
 import NavigationBar from './components/NavigationBar/NavigationBar';
 import ContactMe from './pages/ContactMe/ContactMe';
-import WorkExperience from './pages/WorkExperience/WorkExperience';
 import Hobby from './pages/Hobby/Hobby';
+import Resume from './pages/Resume/Resume';
+import Home from './pages/Home/Home';
 
 function App(props) { 
 
@@ -14,8 +15,9 @@ function App(props) {
     <MainComponent> 
        
       <Profile 
+        home={props.page === '' ? <Home /> : null}
         about={props.page === 'about' ? <AboutMe /> : null}
-        work={props.page === 'workExperience' ? <WorkExperience /> : null}
+        work={props.page === 'resume' ? <Resume /> : null}
         hobby={props.page === 'hobby' ? <Hobby /> : null}
         contact={props.page === 'contact' ? <ContactMe /> : null}
         // project={props.page === 'project' ? <Project /> : null}

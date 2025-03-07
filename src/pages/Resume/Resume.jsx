@@ -4,7 +4,63 @@ import styled from 'styled-components';
 import { color } from '../../style/Color'
 import { fontSize } from '../../style/fontSize';
 
-function WorkExperience() { 
+import javascriptImg from '../../assets/java-script.png';
+import figmaImg from '../../assets/figma.png';
+import css3Img from '../../assets/css-3.png';
+import htmlImg from '../../assets/html.png';
+import javaImg from '../../assets/java.png';
+import reactImg from '../../assets/atom.png';
+import photoshop from '../../assets/adobe-photoshop.png';
+import Chip from '../../components/Chip/Chip';
+
+function Resume() { 
+
+  const Progamminglang = [
+    {
+      image : javascriptImg,
+      name: "Javascript",
+      color: color.yellow
+    },
+    {
+      image :css3Img,
+      name: "CSS3",
+      color: color.orangee34c26
+    },
+    {
+      image :htmlImg,
+      name: "HTML5",
+      color: color.blue264de4
+    },
+    {
+      image :reactImg ,
+      name: "ReactJS",
+      color: color.blue61DBFB
+    },
+    {
+      image :javaImg,
+      name: "Java",
+      color: color.brown
+    },
+  ]
+
+  const tools = [
+    {
+      image :figmaImg,
+      name: "Figma",
+      color: color.yellow
+    },
+    {
+      image :"",
+      name: "Canva",
+      color: color.brown
+    },
+    {
+      image : photoshop,
+      name: "Photoshop",
+      color: color.brown
+    }, 
+  ]
+
   const works = [
     {
       name: "Portable EHR",
@@ -31,38 +87,61 @@ function WorkExperience() {
   return (
       <Container>
         <Header>
-          <Title>Work <Highligth>Experience</Highligth></Title>
-          <Underline />
+          <Title>Resume</Title>
         </Header>
 
-      
+        <Wrapper>
+          <Title>Tech <Highligth>Stacks</Highligth></Title>
+          <Underline />
+          <ProgrammingLanguage>
+            {Progamminglang.map((item, index)=>{
+              return <Chip key={index} img={item.image} name={item.name} color={item.color} />
+            })}
+          </ProgrammingLanguage>
+        </Wrapper>
+
+        <Wrapper>
+          <Title>Design <Highligth>Tools</Highligth></Title>
+          <Underline />
+          <DesignTools>
+            {tools.map((item, index)=>{
+              return <Chip key={index} img={item.image} name={item.name} color={item.color} />
+            })}
+          </DesignTools>
+        </Wrapper>
+
+        <Header>
+          <Title></Title>
+          <Title>Employment <Highligth>History</Highligth></Title>
+          <Underline />
+        </Header>
       <RowContainer>
-        <WorkContainer>
+        <ResumeContainer>
           {
             works.map((item, index) =>{
-              return <WorkItem selected={selectedDescription === item.description} onClick={()=>setSelectedDescription(item.description)} key={index}>
+              return <ResumeItem selected={selectedDescription === item.description} onClick={()=>setSelectedDescription(item.description)} key={index}>
                 <RowContainer>
                   <div>{item.name}</div>
                   <div>{item.date}</div>
                 </RowContainer>
                   {item.role}
-              </WorkItem>
+              </ResumeItem>
             })
           }
-        </WorkContainer>
+        </ResumeContainer>
 
-        <WorkDescription>
+        <ResumeDescription>
           {
             selectedDescription
           }
-        </WorkDescription>
+        </ResumeDescription>
       </RowContainer>
     </Container>
        
   )
 }
 
-export default WorkExperience
+export default Resume
 
 const Container = styled.div`
   display: flex;
@@ -70,7 +149,8 @@ const Container = styled.div`
   align-items: center;
   color: black;
   max-height: 80vh;
-  min-width: 60vw;
+  min-width: 50vw;
+  max-width: 50vw;
   padding: 2%;
   background: ${color.white};
   border-radius: 20px;
@@ -91,13 +171,13 @@ const Underline = styled.div`
   border-bottom: 1px solid ${color.brown};
 `;
 
-const WorkContainer = styled.div`
+const ResumeContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
 `;
 
-const WorkItem = styled.div`
+const ResumeItem = styled.div`
   width: 15vw;
   height: 8vh;
   padding: 2%;
@@ -117,7 +197,7 @@ const RowContainer = styled.div`
   color: ${color.main}
 `;
 
-const WorkDescription = styled.div`
+const ResumeDescription = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -130,4 +210,17 @@ const WorkDescription = styled.div`
 
 const Header = styled.div`
   margin-right: auto;
+`;
+
+const ProgrammingLanguage = styled.div`
+  display: flex;
+  flex-direction: row;
+`
+
+const DesignTools = styled.div`
+display: flex;
+flex-direction: row;
+`
+const Wrapper = styled.div`
+  width: 100%;
 `;

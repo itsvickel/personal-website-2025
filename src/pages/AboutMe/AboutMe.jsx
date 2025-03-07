@@ -4,17 +4,10 @@ import { color } from '../../style/Color';
 import Chip from '../../components/Chip/Chip';
 import { fontSize } from '../../style/fontSize';
 
-import javascriptImg from '../../assets/java-script.png';
-import figmaImg from '../../assets/figma.png';
-import css3Img from '../../assets/css-3.png';
-import htmlImg from '../../assets/html.png';
-import javaImg from '../../assets/java.png';
-import reactImg from '../../assets/atom.png';
 import weightlifting from '../../assets/weightlifting.png';
 import baseballCard from '../../assets/baseball-card.png';
 import code from '../../assets/code.png';
 import art from '../../assets/art.png';
-import photoshop from '../../assets/adobe-photoshop.png';
 
 function MySkills(props, index){
   return (
@@ -33,52 +26,6 @@ function MySkills(props, index){
 function AboutMe() { 
 
   const biographyText = "Hi, I'm Vickel Leung! 👋I'm a full-stack developer with a passion for building impactful projects. While I specialize in front-end development, I can handle the backend when needed. In my spare time, I create 3D art using Blender, blending my love for technology and design. Always exploring new ideas and pushing creative boundaries!"
-
-  const Progamminglang = [
-    {
-      image : javascriptImg,
-      name: "Javascript",
-      color: color.yellow
-    },
-    {
-      image :css3Img,
-      name: "CSS3",
-      color: color.orangee34c26
-    },
-    {
-      image :htmlImg,
-      name: "HTML5",
-      color: color.blue264de4
-    },
-    {
-      image :reactImg ,
-      name: "ReactJS",
-      color: color.blue61DBFB
-    },
-    {
-      image :javaImg,
-      name: "Java",
-      color: color.brown
-    },
-  ]
-
-  const tools = [
-    {
-      image :figmaImg,
-      name: "Figma",
-      color: color.yellow
-    },
-    {
-      image :"",
-      name: "Canva",
-      color: color.brown
-    },
-    {
-      image : photoshop,
-      name: "Photoshop",
-      color: color.brown
-    }, 
-  ]
 
   const whatIDo = [
     {
@@ -114,25 +61,6 @@ function AboutMe() {
           </Bio>
         </Container>
        
-        <Container>
-          <Title>Tech <Highligth>Stacks</Highligth></Title>
-          <Underline />
-          <ProgrammingLanguage>
-            {Progamminglang.map((item, index)=>{
-              return <Chip key={index} img={item.image} name={item.name} color={item.color} />
-            })}
-          </ProgrammingLanguage>
-        </Container>
-
-        <Container>
-          <Title>Design <Highligth>Tools</Highligth></Title>
-          <Underline />
-          <DesignTools>
-            {tools.map((item, index)=>{
-              return <Chip key={index} img={item.image} name={item.name} color={item.color} />
-            })}
-          </DesignTools>
-        </Container>
 
         <Container>
           <Title>What I <Highligth>Do</Highligth></Title>
@@ -153,21 +81,13 @@ export default AboutMe
 const AboutMeContainer = styled.div`
   color: black;
   max-height: 80vh;
+  min-width: 50vw;
+  max-width: 50vw;
   padding: 2%;
   overflow: auto;
   background: ${color.white};
   border-radius: 20px;
   box-shadow: 10px 5px 5px ${color.lightGrey};
-`
-
-const ProgrammingLanguage = styled.div`
-  display: flex;
-  flex-direction: row;
-`
-
-const DesignTools = styled.div`
-display: flex;
-flex-direction: row;
 `
 
 const WhatIDo = styled.div`

@@ -24,7 +24,12 @@ function NavigationBar() {
     {
       name: "Work",
       image: Work,
-      link :"/work-experience"
+      link :"/resume"
+    },
+    {
+      name: "About",
+      image: Hobby,
+      link: '/about'
     },
     // {
     //   name: "Project",
