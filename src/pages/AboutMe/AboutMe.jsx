@@ -11,7 +11,7 @@ import art from '../../assets/art.png';
 
 function MySkills(props, index){
   return (
-    <Container key={index}>
+    <SkillContainer key={index}>
       <Image src={props.image} />
       <SubTitle>
         {props.title}
@@ -19,13 +19,14 @@ function MySkills(props, index){
       <Description>
         {props.description}
       </Description>
-    </Container>
+    </SkillContainer>
   )
 }
 
 function AboutMe() { 
 
-  const biographyText = "Hi, I'm Vickel Leung! 👋I'm a full-stack developer with a passion for building impactful projects. While I specialize in front-end development, I can handle the backend when needed. In my spare time, I create 3D art using Blender, blending my love for technology and design. Always exploring new ideas and pushing creative boundaries!"
+  const titleText = "Hi, I'm Vickel Leung! 👋I'm a full-stack developer with a passion for building impactful projects.";
+  const biographyText = "While I specialize in front-end development, I can handle the backend when needed. In my spare time, I create 3D art using Blender, blending my love for technology and design. Always exploring new ideas and pushing creative boundaries!"
 
   const whatIDo = [
     {
@@ -56,6 +57,7 @@ function AboutMe() {
         <Container>
           <Title>About <Highligth>Me</Highligth></Title>
           <Underline />
+          <MainTitle>{titleText}</MainTitle>
           <Bio>
             {biographyText}
           </Bio>
@@ -79,6 +81,8 @@ function AboutMe() {
 export default AboutMe
 
 const AboutMeContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   color: black;
   max-height: 80vh;
   min-width: 50vw;
@@ -93,10 +97,13 @@ const AboutMeContainer = styled.div`
 const WhatIDo = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 `
 
 const Container = styled.div`
   padding: 2%;
+  display: flex;
+  flex-wrap: wrap;
 `
 
 const Title = styled.div`
@@ -106,9 +113,13 @@ const Title = styled.div`
 const Highligth = styled.span`
   color: ${color.subtext}
 `
-
+const MainTitle = styled.div`
+  margin: 2% 0;
+  font-size : ${fontSize.fontSize_1_5};
+`
 const Bio = styled.div`
-  font-size : ${fontSize.fontSize_1_3}
+  font-size : ${fontSize.fontSize_1_3};
+  color: ${color.grey808080};
 `
 
 const Image = styled.img``;
@@ -119,10 +130,17 @@ const SubTitle = styled.div`
 `;
 
 const Description = styled.div`
-  font-size: ${fontSize.fontSize_1_3}
+  margin: 1%;
+  font-size: ${fontSize.fontSize_1_3};
+  color: ${color.grey808080};
 `;
 
 const Underline = styled.div`
   margin: 1% 0;
   border-bottom: 1px solid ${color.greyB0B0B0};
+`;
+
+const SkillContainer = styled.div`
+  margin: 2% 0;
+  flex: 50%;  
 `;

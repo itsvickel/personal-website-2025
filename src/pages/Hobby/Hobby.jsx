@@ -4,18 +4,11 @@ import styled from 'styled-components';
 import { color } from '../../style/Color';
 
 import axios from 'axios';
+import { fontSize } from '../../style/fontSize';
 
 
 const api = axios.create({
-  baseURL: 'https://graph.instagram.com/me/media?fields=id,caption,media_url,media_type,timestamp&limit=50&access_token=' + import.meta.env.VITE_REACT_APP_INSTAGRAM_ID})
-
-
-
-function InstagramItem (props) {
-  return <InstagramWrapper>
-  
-  </InstagramWrapper>
-}  
+  baseURL: 'https://graph.instagram.com/me/media?fields=id,caption,media_url,media_type,timestamp&limit=30&access_token=' + import.meta.env.VITE_REACT_APP_INSTAGRAM_ID})
 
 const Hobby = () => { 
 
@@ -73,18 +66,27 @@ const Container = styled.div`
   box-shadow: 10px 5px 5px ${color.lightGrey};
 `;
 
-const Header = styled.div``;
+const Header = styled.div`
+  margin-right: auto;
+`;
 
 const InstagramPostContainer = styled.div`
   align-content: center;
   align-items: center;
+  text-align: center;
   display: flex;
   flex-wrap: wrap; 
   overflow-y: auto;
 `;
 
 const Item = styled.div`
-  flex: 50%;
+  margin: 1% 0;
+  flex: 33%;
+
+  &:hover {
+    opacity: 0.4;
+    cursor: pointer;
+  }
 `;
 
 const Image = styled.img`
@@ -93,5 +95,6 @@ const Image = styled.img`
 `;
 
 const MainTitle = styled.div`
-
+  font-size: ${fontSize.fontSize_2};
+  color: ${color.main};
 `;

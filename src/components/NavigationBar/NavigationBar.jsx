@@ -6,6 +6,8 @@ import Project from '../../assets/project.png';
 import Hobby from '../../assets/hobbies.png';
 import Contact from '../../assets/contact-mail.png';
 import Work from '../../assets/briefcase.png';
+import User from '../../assets/user.png';
+
 import { color } from '../../style/Color';
 import { constants } from '../../style/constant';
 
@@ -20,17 +22,18 @@ function NavigationBar() {
       name: "Home",
       image: Home,
       link: "/"
+    },    
+    {
+      name: "About",
+      image: User,
+      link: '/about'
     },
     {
       name: "Work",
       image: Work,
       link :"/resume"
     },
-    {
-      name: "About",
-      image: Hobby,
-      link: '/about'
-    },
+
     // {
     //   name: "Project",
     //   image: Project,
@@ -75,6 +78,6 @@ const NavigationItem = styled(Button)`
 `;
 
 const Image = styled.img` 
-  height: 5em;
-  widht: 5em;
+  height: 3em;
+  widht: 3em;
 `

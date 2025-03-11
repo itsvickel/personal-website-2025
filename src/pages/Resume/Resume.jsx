@@ -144,6 +144,7 @@ function Resume() {
 export default Resume
 
 const Container = styled.div`
+  overflow: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
