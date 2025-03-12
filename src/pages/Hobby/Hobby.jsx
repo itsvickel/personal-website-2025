@@ -26,6 +26,8 @@ const [instagramPost, setInstagramPost] = useState([]);
       <Container>
         <Header>
           <MainTitle>Hobby</MainTitle>
+          <Subtext>This is my 3D art portfolio, feel free to follow me!</Subtext>
+          <Link href="https://www.instagram.com/vick3l" >Click here to see more</Link>
         </Header>
 
         <InstagramPostContainer>
@@ -98,3 +100,9 @@ const MainTitle = styled.div`
   font-size: ${fontSize.fontSize_2};
   color: ${color.main};
 `;
+
+const Subtext = styled.div`
+  color: ${color.grey808080};
+`;
+
+const Link = styled.a``;

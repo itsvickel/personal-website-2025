@@ -1,6 +1,7 @@
 {
+  "position": "fixed",
     "background": {
-      "color": "#282c34"
+      "color": "#F5F5F5"
     },
     "interactivity": {
       "events": {
@@ -27,14 +28,14 @@
     "particles": {
     "fullScreen": { "enable": true, "zIndex": -1 },
       "color": {
-        "value": "#ffffff"
+        "value": "#000000"
       },
       "links": {
-        "color": "#ffffff",
+        "color": "#000000",
         "distance": 150,
         "enable": true,
         "opacity": 0.5,
-        "width": 1
+        "width": 0.5
       },
       "collisions": {
         "enable": true
@@ -46,24 +47,24 @@
           "default": "bounce"
         },
         "random": false,
-        "speed": 6,
+        "speed": 2,
         "straight": false
       },
       "number": {
         "density": {
           "enable": true
         },
-        "value": 80
+        "value": 100
       },
       "opacity": {
-        "value": 0.5
+        "value": 0.2
       },
       "shape": {
-        "type": "circle"
+        "type": "square"
       },
       "size": {
         "random": true,
-        "value": 5
+        "value": 2
       }
     }
   }

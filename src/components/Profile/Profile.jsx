@@ -38,6 +38,7 @@ const ProfileComponent = styled.div`
   display: flex;
   border-radius: 20px;
   box-shadow: 10px 5px 5px ${color.lightGrey};
+  z-index: 2
 `;
 
 const MainComponent = styled.div`

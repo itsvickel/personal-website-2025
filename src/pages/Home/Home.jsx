@@ -3,36 +3,31 @@ import { useState, useEffect, useMemo } from 'react'
 import styled from 'styled-components';
 import { color } from '../../style/Color';
 import { fontSize } from '../../style/fontSize';
-import Particles, {initParticlesEngine} from "@tsparticles/react";
 import {loadFull} from "tsparticles";
-import particlesOptions from "../../particles.json";
+import { TypeAnimation } from 'react-type-animation';
 
 function Home() { 
-  const [init, setInit] = useState(false);
-
-  useEffect(() => {
-      if (init) {
-          return;
-      }
-
-      initParticlesEngine(async (engine) => {
-          await loadFull(engine);
-      }).then(() => {
-          setInit(true);
-      });
-  }, []);
 
   return (
       <Container>
-          {/* {init && <Particles  
-            options={particlesOptions}>
-
-          </Particles>
-          }
-        <Particles />                      */}
+                   
         <Header>
               <Title>Vickel Leung</Title>
-              <Subtitle>Fullstack Developer</Subtitle>
+              <Subtitle>I am a 
+                <TypeAnimation
+                sequence={[
+                    ' Fullstack Developer', // Types 'One'
+                    5000, // Waits 1s
+                    ' 3D artist', // Deletes 'One' and types 'Two'
+                    5000, // Waits 2s
+                    ' Avid Card collector', // Types 'Three' without deleting 'Two'
+                 
+                ]}
+                wrapper="span"
+                cursor={true}
+                repeat={Infinity}
+                />
+             </Subtitle>
           </Header>
       </Container>
  
@@ -58,6 +53,7 @@ const Container = styled.div`
 `;
 
 const Header = styled.div`
+    width: 100%;
     justify-items: center;
 `;
 
