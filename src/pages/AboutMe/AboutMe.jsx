@@ -4,6 +4,8 @@ import { color } from '../../style/Color';
 import Chip from '../../components/Chip/Chip';
 import { fontSize } from '../../style/fontSize';
 
+import { Parallax, ParallaxLayer } from '@react-spring/parallax'
+
 import weightlifting from '../../assets/weightlifting.png';
 import baseballCard from '../../assets/baseball-card.png';
 import code from '../../assets/code.png';
@@ -11,6 +13,7 @@ import art from '../../assets/art.png';
 
 function MySkills(props, index){
   return (
+    // <ParallaxLayer offset={index + 0.5} speed={1.5} style={{ justifyContent: 'flex-end' }}>
     <SkillContainer key={index}>
       <Image src={props.image} />
       <SubTitle>
@@ -20,6 +23,7 @@ function MySkills(props, index){
         {props.description}
       </Description>
     </SkillContainer>
+  // </ParallaxLayer>
   )
 }
 
@@ -65,13 +69,19 @@ function AboutMe() {
        
 
         <Container>
+        {/* <Parallax pages={4} > */}
+        {/* <ParallaxLayer sticky={{ start: 1, end: 3 }} style={{ justifyContent: 'flex-start' }}> */}
           <Title>What I <Highligth>Do</Highligth></Title>
+        {/* </ParallaxLayer> */}
+
           <Underline />
           <WhatIDo>
             {whatIDo.map((item, index) =>{
               return MySkills(item, index);
             })}
           </WhatIDo>
+        {/* </Parallax> */}
+
         </Container>  
 
       </AboutMeContainer>

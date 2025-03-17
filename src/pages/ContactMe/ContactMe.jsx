@@ -1,5 +1,10 @@
 import React, { useRef, useState } from 'react';
 
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+
+import { ToastContainer, toast } from 'react-toastify';
+
 import styled from 'styled-components';
 import { color } from '../../style/Color';
 import { fontSize } from '../../style/fontSize';
@@ -15,20 +20,28 @@ function ContactMe() {
   const TEMPLATE_ID = import.meta.env.VITE_REACT_APP_EMAILJS_TEMPLATE_ID;
   const PUBLIC_KEY =  import.meta.env.VITE_REACT_APP_EMAILJS_PUBLIC_ID;
 
+  const notifySuccess = () => toast('I got your email! I`ll get back to you ASAP!');
+  const notifyError = () => toast('The email could not be sent, please try again');
+
   const sendEmail = (e) => {
     e.preventDefault();
-
+    
     emailjs
       .sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
       .then(
         () => {
+          notifySuccess();
+          form.current.reset();
           console.log('SUCCESS!');
         },
         (error) => {
+          notifyError();
           console.log('FAILED...', error.text);
         },
       );
   };
+
+
 
   return (
       <ContactContainer>
@@ -36,17 +49,38 @@ function ContactMe() {
         <Title>Contact <Highligth>Me</Highligth></Title>
         </Header>
         <ContactForm>
+        
         <form ref={form} onSubmit={sendEmail}>
-          <Name key={'name'} name="user_name"  type="text" ></Name>
-          <Email key={'email'} name="user_email" type="email" ></Email>
-          <Message name="message"></Message>
-          
-          <Captcha></Captcha>
-          
-          <Submit key={'submit'}>Submit</Submit>
+          <FormContainer>
+            <TextFieldItem
+              key={'name'}
+              name="user_name" 
+              label="What is your name?" 
+            />
+            
+            <TextFieldItem
+              key={'email'}
+              name="user_email"
+              label="What is your email address?" 
+            />
+
+            <TextFieldItem
+              key="message" 
+              name="message"
+              multiline
+              rows={4}
+              label="Write your message here..." 
+            />
+          </FormContainer>
+
+            <Captcha></Captcha>
+            
+            <Button variant="outlined" type="submit" key={'submit'}>Submit</Button>
 
           </form>
         </ContactForm>
+
+        <ToastContainer autoClose={5000} />
       </ContactContainer>
   )
 }
@@ -67,14 +101,12 @@ const ContactContainer = styled.div`
   box-shadow: 10px 5px 5px ${color.lightGrey};
 `
 
-const ContactForm = styled.div``;
+const ContactForm = styled.div`
+  text-align: center;
+  margin: 0  10%;
+`;
 
-const Name = styled.input``;
-const Email = styled.input``;
-const Message = styled.textarea``;
 const Captcha = styled.div``;
-const Submit = styled.button``;
-
 
 const Header = styled.div``;
 
@@ -85,3 +117,11 @@ const Title = styled.div`
 const Highligth = styled.span`
   color: ${color.subtext}
 `
+const FormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const TextFieldItem  = styled(TextField)`
+  padding: 10%;
+`;

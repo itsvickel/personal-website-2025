@@ -6,6 +6,7 @@ import { color } from '../../style/Color';
 import axios from 'axios';
 import { fontSize } from '../../style/fontSize';
 
+import ImageZoom from '../../components/ImageZoom/ImageZoom';
 
 const api = axios.create({
   baseURL: 'https://graph.instagram.com/me/media?fields=id,caption,media_url,media_type,timestamp&limit=30&access_token=' + import.meta.env.VITE_REACT_APP_INSTAGRAM_ID})
@@ -13,6 +14,8 @@ const api = axios.create({
 const Hobby = () => { 
 
 const [instagramPost, setInstagramPost] = useState([]);
+const [zoomedImg, setZoomedImg] = useState({});
+const [isModal, setIsModal] = useState(false);
 
   useEffect(() => {
   api.get().then((res)=>{
@@ -33,7 +36,10 @@ const [instagramPost, setInstagramPost] = useState([]);
         <InstagramPostContainer>
           {
             instagramPost.map((item, index)=>{
-              return <Item key={index}>
+              return <Item key={index} onClick={()=>{
+                setIsModal(true);
+                setZoomedImg(item);
+              }} >
                 {item.media_type === "VIDEO" ? 
                 <video width="320" height="240" controls>
                   <source src={item.media_url} type="video/mp4" />
@@ -47,7 +53,10 @@ const [instagramPost, setInstagramPost] = useState([]);
             })
           }
         </InstagramPostContainer>
-
+        {
+          isModal ?  <ImageZoom data={zoomedImg} isOpen={isModal} handleClose={()=> setIsModal(false) } /> : null
+        }
+      
       </Container>
   )
 }
