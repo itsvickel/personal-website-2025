@@ -6,11 +6,19 @@ import Project from '../../assets/project.png';
 import Hobby from '../../assets/hobbies.png';
 import Contact from '../../assets/contact-mail.png';
 import Work from '../../assets/briefcase.png';
+import User from '../../assets/user.png';
+
 import { color } from '../../style/Color';
 import { constants } from '../../style/constant';
 
 import { useNavigate } from "react-router-dom";
 import Button from '@mui/material/Button';
+
+import { Card } from '../Card/index';
+import { Dock } from '../Dock/index';
+import { DockCard } from '../DockCard/index';
+import { DockDivider } from '../DockDivider/index';
+
 
 function NavigationBar() { 
 
@@ -20,12 +28,18 @@ function NavigationBar() {
       name: "Home",
       image: Home,
       link: "/"
+    },    
+    {
+      name: "About",
+      image: User,
+      link: '/about'
     },
     {
       name: "Work",
       image: Work,
-      link :"/work-experience"
+      link :"/resume"
     },
+
     // {
     //   name: "Project",
     //   image: Project,
@@ -44,15 +58,29 @@ function NavigationBar() {
   ]
 
   return (
-      <Container>
-        {
-          items.map((item, index) =>{
-            return <NavigationItem  onClick={() => navigate(item.link)} variant="text" key={index}>
-              <Image src={item.image}/>
-            </NavigationItem>
-          })
-        }
-      </Container>
+           
+    <Dock>
+    {items.map((src, index) =>
+      src ? (
+        <DockCard key={src}>
+          <Card link={src.link} src={src.image} />
+        </DockCard>
+      ) : (
+        <DockDivider key={index} />
+      )
+    )}
+  </Dock>
+
+
+      // <Container>
+      //   {
+      //     items.map((item, index) =>{
+      //       return <NavigationItem  onClick={() => navigate(item.link)} variant="text" key={index}>
+      //         <Image src={item.image}/>
+      //       </NavigationItem>
+      //     })
+      //   }
+      // </Container>
   )
 }
 
@@ -70,6 +98,6 @@ const NavigationItem = styled(Button)`
 `;
 
 const Image = styled.img` 
-  height: 5em;
-  widht: 5em;
+  height: 3em;
+  widht: 3em;
 `

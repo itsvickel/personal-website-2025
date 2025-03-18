@@ -4,21 +4,19 @@ import { color } from '../../style/Color';
 import Chip from '../../components/Chip/Chip';
 import { fontSize } from '../../style/fontSize';
 
-import javascriptImg from '../../assets/java-script.png';
-import figmaImg from '../../assets/figma.png';
-import css3Img from '../../assets/css-3.png';
-import htmlImg from '../../assets/html.png';
-import javaImg from '../../assets/java.png';
-import reactImg from '../../assets/atom.png';
+import { Parallax, ParallaxLayer } from '@react-spring/parallax'
+
 import weightlifting from '../../assets/weightlifting.png';
 import baseballCard from '../../assets/baseball-card.png';
 import code from '../../assets/code.png';
 import art from '../../assets/art.png';
-import photoshop from '../../assets/adobe-photoshop.png';
+
+import Zoom from '@mui/material/Zoom';
 
 function MySkills(props, index){
   return (
-    <Container key={index}>
+    // <ParallaxLayer offset={index + 0.5} speed={1.5} style={{ justifyContent: 'flex-end' }}>
+    <SkillContainer key={index}>
       <Image src={props.image} />
       <SubTitle>
         {props.title}
@@ -26,59 +24,15 @@ function MySkills(props, index){
       <Description>
         {props.description}
       </Description>
-    </Container>
+    </SkillContainer>
+  // </ParallaxLayer>
   )
 }
 
 function AboutMe() { 
 
-  const biographyText = "Hi, I'm Vickel Leung! 👋I'm a full-stack developer with a passion for building impactful projects. While I specialize in front-end development, I can handle the backend when needed. In my spare time, I create 3D art using Blender, blending my love for technology and design. Always exploring new ideas and pushing creative boundaries!"
-
-  const Progamminglang = [
-    {
-      image : javascriptImg,
-      name: "Javascript",
-      color: color.yellow
-    },
-    {
-      image :css3Img,
-      name: "CSS3",
-      color: color.orangee34c26
-    },
-    {
-      image :htmlImg,
-      name: "HTML5",
-      color: color.blue264de4
-    },
-    {
-      image :reactImg ,
-      name: "ReactJS",
-      color: color.blue61DBFB
-    },
-    {
-      image :javaImg,
-      name: "Java",
-      color: color.brown
-    },
-  ]
-
-  const tools = [
-    {
-      image :figmaImg,
-      name: "Figma",
-      color: color.yellow
-    },
-    {
-      image :"",
-      name: "Canva",
-      color: color.brown
-    },
-    {
-      image : photoshop,
-      name: "Photoshop",
-      color: color.brown
-    }, 
-  ]
+  const titleText = "Hi, I'm Vickel Leung! 👋I'm a full-stack developer with a passion for building impactful projects.";
+  const biographyText = "While I specialize in front-end development, I can handle the backend when needed. In my spare time, I create 3D art using Blender, blending my love for technology and design. Always exploring new ideas and pushing creative boundaries!"
 
   const whatIDo = [
     {
@@ -104,55 +58,48 @@ function AboutMe() {
   ]
   
   return (
-      <AboutMeContainer>
-        
+         <Zoom style={{ transitionDelay: '100ms' }}  in={true}>
+          <AboutMeContainer>
         <Container>
           <Title>About <Highligth>Me</Highligth></Title>
           <Underline />
+          <MainTitle>{titleText}</MainTitle>
           <Bio>
             {biographyText}
           </Bio>
         </Container>
        
-        <Container>
-          <Title>Tech <Highligth>Stacks</Highligth></Title>
-          <Underline />
-          <ProgrammingLanguage>
-            {Progamminglang.map((item, index)=>{
-              return <Chip key={index} img={item.image} name={item.name} color={item.color} />
-            })}
-          </ProgrammingLanguage>
-        </Container>
 
         <Container>
-          <Title>Design <Highligth>Tools</Highligth></Title>
-          <Underline />
-          <DesignTools>
-            {tools.map((item, index)=>{
-              return <Chip key={index} img={item.image} name={item.name} color={item.color} />
-            })}
-          </DesignTools>
-        </Container>
-
-        <Container>
+        {/* <Parallax pages={4} > */}
+        {/* <ParallaxLayer sticky={{ start: 1, end: 3 }} style={{ justifyContent: 'flex-start' }}> */}
           <Title>What I <Highligth>Do</Highligth></Title>
+        {/* </ParallaxLayer> */}
+
           <Underline />
           <WhatIDo>
             {whatIDo.map((item, index) =>{
               return MySkills(item, index);
             })}
           </WhatIDo>
-        </Container>  
+        {/* </Parallax> */}
 
-      </AboutMeContainer>
+        </Container>  
+        
+      </AboutMeContainer> 
+      </Zoom>
   )
 }
 
 export default AboutMe
 
 const AboutMeContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   color: black;
-  max-height: 80vh;
+  max-height: 70vh;
+  min-width: 50vw;
+  max-width: 50vw;
   padding: 2%;
   overflow: auto;
   background: ${color.white};
@@ -160,23 +107,16 @@ const AboutMeContainer = styled.div`
   box-shadow: 10px 5px 5px ${color.lightGrey};
 `
 
-const ProgrammingLanguage = styled.div`
-  display: flex;
-  flex-direction: row;
-`
-
-const DesignTools = styled.div`
-display: flex;
-flex-direction: row;
-`
-
 const WhatIDo = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 `
 
 const Container = styled.div`
   padding: 2%;
+  display: flex;
+  flex-wrap: wrap;
 `
 
 const Title = styled.div`
@@ -186,9 +126,13 @@ const Title = styled.div`
 const Highligth = styled.span`
   color: ${color.subtext}
 `
-
+const MainTitle = styled.div`
+  margin: 2% 0;
+  font-size : ${fontSize.fontSize_1_5};
+`
 const Bio = styled.div`
-  font-size : ${fontSize.fontSize_1_3}
+  font-size : ${fontSize.fontSize_1_3};
+  color: ${color.grey808080};
 `
 
 const Image = styled.img``;
@@ -199,10 +143,17 @@ const SubTitle = styled.div`
 `;
 
 const Description = styled.div`
-  font-size: ${fontSize.fontSize_1_3}
+  margin: 1%;
+  font-size: ${fontSize.fontSize_1_3};
+  color: ${color.grey808080};
 `;
 
 const Underline = styled.div`
   margin: 1% 0;
   border-bottom: 1px solid ${color.greyB0B0B0};
+`;
+
+const SkillContainer = styled.div`
+  margin: 2% 0;
+  flex: 50%;  
 `;

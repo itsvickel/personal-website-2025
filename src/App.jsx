@@ -1,28 +1,48 @@
-import { useState } from 'react';
+import { useState, useEffect, useMemo } from 'react' 
 import styled from 'styled-components';
 import { color } from './style/Color';
 import Profile from './components/Profile/profile';
 import AboutMe from './pages/AboutMe/AboutMe';
-import NavigationBar from './components/NavigationBar/NavigationBar';
+import NavigationBar from './components/NavigationBar/NavigationDesktop';
 import ContactMe from './pages/ContactMe/ContactMe';
-import WorkExperience from './pages/WorkExperience/WorkExperience';
 import Hobby from './pages/Hobby/Hobby';
+import Resume from './pages/Resume/Resume';
+import Home from './pages/Home/Home';
+
+import particlesOptions from "./particles.json";
+import Particles, {initParticlesEngine} from "@tsparticles/react";
+import {loadFull} from "tsparticles";
 
 function App(props) { 
+  const [init, setInit] = useState(false);
+
+  useEffect(() => { 
+    initParticlesEngine(async (engine) => {
+        await loadFull(engine);
+    }).then(() => {
+        setInit(true);
+    });
+}, [init]);
 
   return (
     <MainComponent> 
-       
+        {init && <Particles  
+          options={particlesOptions}>
+
+        </Particles>
+        }
+    
       <Profile 
+        home={props.page === '' ? <Home /> : null}
         about={props.page === 'about' ? <AboutMe /> : null}
-        work={props.page === 'workExperience' ? <WorkExperience /> : null}
+        work={props.page === 'resume' ? <Resume /> : null}
         hobby={props.page === 'hobby' ? <Hobby /> : null}
         contact={props.page === 'contact' ? <ContactMe /> : null}
         // project={props.page === 'project' ? <Project /> : null}
- 
       />
       
-      <NavigationBar />
+      <NavigationBar />  
+      <Particles />  
     </MainComponent>
   )
 }

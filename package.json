@@ -12,9 +12,19 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
-    "@mui/material": "^6.4.6",
+    "@mui/material": "^6.4.7",
+    "@react-spring/parallax": "^9.7.5",
+    "@react-spring/web": "^9.7.5",
+    "@tsparticles/engine": "^3.8.1",
+    "@tsparticles/react": "^3.0.0",
+    "@use-gesture/react": "^10.3.1",
+    "axios": "^1.8.2",
+    "emailjs-com": "^3.2.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-toastify": "^11.0.5",
+    "react-type-animation": "^3.2.0",
+    "tsparticles": "^3.8.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
@@ -29,6 +39,7 @@
     "mui": "^0.0.1",
     "node": "^18.20.7",
     "react-router-dom": "^7.2.0",
+    "sass-embedded": "^1.85.1",
     "styled-components": "^6.1.15",
     "vite": "^6.2.0"
   }
