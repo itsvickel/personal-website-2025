@@ -8,13 +8,15 @@ import { fontSize } from '../../style/fontSize';
 
 import ImageZoom from '../../components/ImageZoom/ImageZoom';
 
+import Slide from '@mui/material/Slide';
+
 const api = axios.create({
   baseURL: 'https://graph.instagram.com/me/media?fields=id,caption,media_url,media_type,timestamp&limit=30&access_token=' + import.meta.env.VITE_REACT_APP_INSTAGRAM_ID})
 
 const Hobby = () => { 
 
 const [instagramPost, setInstagramPost] = useState([]);
-const [zoomedImg, setZoomedImg] = useState({});
+const [zoomedData, setZoomedData] = useState({});
 const [isModal, setIsModal] = useState(false);
 
   useEffect(() => {
@@ -26,38 +28,39 @@ const [isModal, setIsModal] = useState(false);
   }, []);
 
   return (
-      <Container>
-        <Header>
-          <MainTitle>Hobby</MainTitle>
-          <Subtext>This is my 3D art portfolio, feel free to follow me!</Subtext>
-          <Link href="https://www.instagram.com/vick3l" >Click here to see more</Link>
-        </Header>
+    <Slide direction={'up'} in={true}> 
+        <Container>
+          <Header>
+            <MainTitle>Hobby</MainTitle>
+            <Subtext>This is my 3D art portfolio, feel free to follow me!</Subtext>
+            <Link href="https://www.instagram.com/vick3l" >Click here to see more</Link>
+          </Header>
 
-        <InstagramPostContainer>
-          {
-            instagramPost.map((item, index)=>{
-              return <Item key={index} onClick={()=>{
-                setIsModal(true);
-                setZoomedImg(item);
-              }} >
-                {item.media_type === "VIDEO" ? 
-                <video width="320" height="240" controls>
-                  <source src={item.media_url} type="video/mp4" />
-                Your browser does not support the video tag.
-                </video>
-                : null}
+          <InstagramPostContainer>
+            {
+              instagramPost.map((item, index)=>{
+                return <Item key={index} onClick={()=>{
+                  setIsModal(true);
+                  setZoomedData(item);
+                }} >
+                  {item.media_type === "VIDEO" ? 
+                  <video width="320" height="240" controls>
+                    <source src={item.media_url} type="video/mp4" />
+                  Your browser does not support the video tag.
+                  </video>
+                  : null}
+                  
+                  {item.media_type === "IMAGE" ?  <Image src={item.media_url}/>: null}
                 
-                {item.media_type === "IMAGE" ?  <Image src={item.media_url}/>: null}
-               
-              </Item>
-            })
+                </Item>
+              })
+            }
+          </InstagramPostContainer>
+          {
+            isModal ?  <ImageZoom data={zoomedData} isOpen={isModal} handleClose={()=> setIsModal(false) } /> : null
           }
-        </InstagramPostContainer>
-        {
-          isModal ?  <ImageZoom data={zoomedImg} isOpen={isModal} handleClose={()=> setIsModal(false) } /> : null
-        }
-      
-      </Container>
+        </Container>
+  </Slide>
   )
 }
 
@@ -68,7 +71,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   color: black;
-  max-height: 80vh;
+  max-height: 70vh;
   min-width: 50vw;
   max-width: 50vw;
   padding: 2%;
@@ -82,9 +85,6 @@ const Header = styled.div`
 `;
 
 const InstagramPostContainer = styled.div`
-  align-content: center;
-  align-items: center;
-  text-align: center;
   display: flex;
   flex-wrap: wrap; 
   overflow-y: auto;

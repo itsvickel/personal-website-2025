@@ -15,6 +15,7 @@ function Profile(props) {
             {Name}
           </ProfileName>
           <SocialMediaBar/>
+          <ResumeLink>Get my resume!</ResumeLink>
         </MainComponent>
 
         {props.home ? props.home : null}
@@ -30,7 +31,7 @@ function Profile(props) {
 export default Profile
 
 const ProfileComponent = styled.div`
-  height: 80vh;
+  height: 70vh;
   min-width: 75vw;
   max-width: 75vw;
   background: ${color.main};
@@ -67,3 +68,21 @@ const ProfileLinks = styled.div`
 
 `;
 
+const ResumeLink = styled.div`
+cursor: pointer; 
+transform: translate(-50%,-50%);
+border-radius: 5px;
+background-image: linear-gradient(${color.subtext}, ${color.subtext});
+background-size: 100% 10px;
+background-repeat: no-repeat;
+background-position: 100% 0%;
+ transition: background-size .7s, background-position .5s ease-in-out;
+
+&:hover {
+  background-size: 100% 100%;
+  background-position: 0% 100%;
+  transition: background-position .7s, background-size .5s ease-in-out;
+  padding: 2%;
+}
+
+`;

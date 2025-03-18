@@ -11,6 +11,8 @@ import baseballCard from '../../assets/baseball-card.png';
 import code from '../../assets/code.png';
 import art from '../../assets/art.png';
 
+import Zoom from '@mui/material/Zoom';
+
 function MySkills(props, index){
   return (
     // <ParallaxLayer offset={index + 0.5} speed={1.5} style={{ justifyContent: 'flex-end' }}>
@@ -56,8 +58,8 @@ function AboutMe() {
   ]
   
   return (
-      <AboutMeContainer>
-        
+         <Zoom style={{ transitionDelay: '100ms' }}  in={true}>
+          <AboutMeContainer>
         <Container>
           <Title>About <Highligth>Me</Highligth></Title>
           <Underline />
@@ -83,8 +85,9 @@ function AboutMe() {
         {/* </Parallax> */}
 
         </Container>  
-
-      </AboutMeContainer>
+        
+      </AboutMeContainer> 
+      </Zoom>
   )
 }
 
@@ -94,7 +97,7 @@ const AboutMeContainer = styled.div`
   display: flex;
   flex-direction: column;
   color: black;
-  max-height: 80vh;
+  max-height: 70vh;
   min-width: 50vw;
   max-width: 50vw;
   padding: 2%;

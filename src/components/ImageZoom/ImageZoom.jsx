@@ -19,9 +19,15 @@ function ImageZoom(props) {
         <Modal
           open={props.isOpen}
           onClose={props.handleClose}
+          sx={{alignContent: 'center'}}
         >
             <ImageContent> 
-              <Image src={props.data.media_url}/>
+              <CloseButton onClick={props.handleClose}>X</CloseButton>
+              {props.data.media_type === "IMAGE" ?  <Image src={props.data.media_url}/>:  
+                  <video width="320" height="240" controls>
+                    <source src={props.data.media_url} type="video/mp4" />
+                  Your browser does not support the video tag.
+                  </video>} 
               <Caption>{spliceCaption(props.data.caption, "#")[0]}</Caption>
             </ImageContent>
         </Modal>
@@ -51,4 +57,16 @@ const Image = styled.img`
 const Caption  = styled.div`
   margin: 2% 0;
   font-size: ${fontSize.fontSize_1_5};
+`;
+
+const CloseButton = styled.div`
+  margin-left: auto; 
+  margin-right: 0;
+  font-size: ${fontSize.fontSize_1_5};
+  font-weight: bold;
+
+  &: hover {
+    cursor: pointer;
+    opacity: 0.5;
+  }
 `;

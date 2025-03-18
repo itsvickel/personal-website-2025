@@ -43,7 +43,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   color: black;
-  max-height: 80vh;
+  max-height: 70vh;
   min-width: 50vw;
   max-width: 50vw;
   padding: 2%;

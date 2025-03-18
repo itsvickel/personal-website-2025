@@ -13,6 +13,8 @@ import reactImg from '../../assets/atom.png';
 import photoshop from '../../assets/adobe-photoshop.png';
 import Chip from '../../components/Chip/Chip';
 
+import Slide from '@mui/material/Slide';
+
 function Resume() { 
 
   const Progamminglang = [
@@ -85,10 +87,39 @@ function Resume() {
   const [selectedDescription, setSelectedDescription] = useState(works[0].description);
 
   return (
+    <Slide direction={'down'} in={true}> 
       <Container>
         <Header>
           <Title>Resume</Title>
         </Header>
+
+        <Header>
+          <Title></Title>
+          <Title>Employment <Highligth>History</Highligth></Title>
+          <Underline />
+        </Header>
+
+      <RowContainer>
+        <ResumeContainer>
+          {
+            works.map((item, index) =>{
+              return <ResumeItem selected={selectedDescription === item.description} onClick={()=>setSelectedDescription(item.description)} key={index}>
+                <RowContainer selected={selectedDescription === item.description} >
+                  <div>{item.name}</div>
+                  <div>{item.date}</div>
+                </RowContainer>
+                  {item.role}
+              </ResumeItem>
+            })
+          }
+        </ResumeContainer>
+
+        <ResumeDescription>
+          {
+            selectedDescription
+          }
+        </ResumeDescription>
+      </RowContainer>
 
         <Wrapper>
           <Title>Tech <Highligth>Stacks</Highligth></Title>
@@ -109,35 +140,8 @@ function Resume() {
             })}
           </DesignTools>
         </Wrapper>
-
-        <Header>
-          <Title></Title>
-          <Title>Employment <Highligth>History</Highligth></Title>
-          <Underline />
-        </Header>
-      <RowContainer>
-        <ResumeContainer>
-          {
-            works.map((item, index) =>{
-              return <ResumeItem selected={selectedDescription === item.description} onClick={()=>setSelectedDescription(item.description)} key={index}>
-                <RowContainer>
-                  <div>{item.name}</div>
-                  <div>{item.date}</div>
-                </RowContainer>
-                  {item.role}
-              </ResumeItem>
-            })
-          }
-        </ResumeContainer>
-
-        <ResumeDescription>
-          {
-            selectedDescription
-          }
-        </ResumeDescription>
-      </RowContainer>
     </Container>
-       
+  </Slide>
   )
 }
 
@@ -149,7 +153,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   color: black;
-  max-height: 80vh;
+  max-height: 70vh;
   min-width: 50vw;
   max-width: 50vw;
   padding: 2%;
@@ -176,6 +180,7 @@ const ResumeContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-bottom: auto;
 `;
 
 const ResumeItem = styled.div`
@@ -195,16 +200,16 @@ const RowContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  color: ${color.main}
+  color: ${props => props.selected ? color.white : color.main };
 `;
 
 const ResumeDescription = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 3%;
-  margin: 6% 4%;
   border-radius: 10px;
+  margin: 0 5%;
+  padding: 2%;
   font-size: ${fontSize.fontSize_1_5};
   background: ${color.greyF5F5F5};
 `;
