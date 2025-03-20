@@ -16,9 +16,10 @@ import email from '../../assets/mail.png';
 import location from '../../assets/location.png';
 
 import Grow from '@mui/material/Grow';
+import { constants } from '../../style/constant';
 
 const ContactItem = (item, index) =>{
-  return <ContactItemContainer key={index}>
+  return <ContactItemContainer href={item.href} key={index}>
     <Image src={item.img} />
     <Label> {item.label}</Label>
     <Description> {item.description}</Description>
@@ -38,16 +39,19 @@ function ContactMe() {
       img: email,
       label: "Email Address",
       description: "Vickelleung@gmail.com",
+      href:"mailto:Vickelleung@gmail.com"
     },
     {
       img: smartphone,
       label: "Phone Number",
       description: "(514) 815-8638",
+      href:"tel:514-815-8638"
     },
     {
       img: location,
       label: "Location",
       description: "Saint-Jean-sur-Richelieu",
+      href:"https://maps.app.goo.gl/wG9Sn5Sg4Yy7Wtjk9"
     },
   ]
 
@@ -83,7 +87,6 @@ function ContactMe() {
         <ContactWrapper>
           <ContactInformation>
             {contactInfo.map((item, index)=>{
-              console.log(item);
               return ContactItem(item, index);
             })}
           </ContactInformation>
@@ -135,17 +138,7 @@ function ContactMe() {
 export default ContactMe
 
 const ContactContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  color: black;
-  max-height: 70vh;
-  min-width: 50vw;
-  max-width: 50vw;
-  padding: 2%;
-  overflow: auto;
-  background: ${color.white};
-  border-radius: 20px;
-  box-shadow: 10px 5px 5px ${color.lightGrey};
+  ${constants.defaultPageStyle};
 `
 
 const ContactForm = styled.div`
@@ -184,6 +177,10 @@ const ContactWrapper  = styled.div`
 const ContactInformation = styled.div`
   display: flex;
   flex-direction: row;
+    
+  & : hover{
+    opacity: 0.5;
+  }
 `;
 
 const Label = styled.div`
@@ -196,7 +193,7 @@ const Description = styled.div`
   font-size: ${fontSize.fontSize_1_2};
 `;
 
-const ContactItemContainer = styled.div`
+const ContactItemContainer = styled.a`
   margin: 2%;
   padding: 3%;
   width: 12vw;
@@ -206,6 +203,7 @@ const ContactItemContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   border: 1px solid ${color.main};
+  color: ${color.main};
   align-items: center;
-
+  text-decoration: none;
 `;

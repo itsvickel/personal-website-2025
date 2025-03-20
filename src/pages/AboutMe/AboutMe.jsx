@@ -12,6 +12,7 @@ import code from '../../assets/code.png';
 import art from '../../assets/art.png';
 
 import Zoom from '@mui/material/Zoom';
+import { constants } from '../../style/constant';
 
 function MySkills(props, index){
   return (
@@ -94,17 +95,7 @@ function AboutMe() {
 export default AboutMe
 
 const AboutMeContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  color: black;
-  max-height: 70vh;
-  min-width: 50vw;
-  max-width: 50vw;
-  padding: 2%;
-  overflow: auto;
-  background: ${color.white};
-  border-radius: 20px;
-  box-shadow: 10px 5px 5px ${color.lightGrey};
+  ${constants.defaultPageStyle};
 `
 
 const WhatIDo = styled.div`

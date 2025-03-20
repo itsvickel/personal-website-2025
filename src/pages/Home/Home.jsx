@@ -5,6 +5,7 @@ import { color } from '../../style/Color';
 import { fontSize } from '../../style/fontSize';
 import {loadFull} from "tsparticles";
 import { TypeAnimation } from 'react-type-animation';
+import { constants } from '../../style/constant';
 
 function Home() { 
 
@@ -38,18 +39,8 @@ function Home() {
 export default Home
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: black;
-  max-height: 70vh;
-  min-width: 50vw;
-  max-width: 50vw;
-  padding: 2%;
-  background: ${color.white};
-  border-radius: 20px;
-  box-shadow: 10px 5px 5px ${color.lightGrey};
+    justify-content: center;
+    ${constants.defaultPageStyle};
 `;
 
 const Header = styled.div`

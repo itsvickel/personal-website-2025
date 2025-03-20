@@ -2,13 +2,14 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { color } from '../../style/Color';
 
+import { glowStyle ,hoverGlowStyle } from '../../style/styles';
+
 function LinkItem(props) { 
 
   return (
-      <LinkContainer >
+      <LinkContainer mainColor={props.mainColor} secondaryColor={props.secondaryColor}  target="_blank" href={props.href}>
           {/* <p>{props.name} </p> */}
           <img src={props.img} />
-          <a href={props.href} />
       </LinkContainer>
        
   )
@@ -16,14 +17,14 @@ function LinkItem(props) {
 
 export default LinkItem
 
-const LinkContainer = styled.div`
+const LinkContainer = styled.a`
   margin: 2%;
-  padding: 4%;
-  border: 1px solid ${color.white};
   border-radius: 10px;
 
-  &: hover{
-    opacity: 0.5;
-    cursor: pointer;
+  ${props => glowStyle(props.mainColor)}
+
+  &:hover { 
+    ${props => hoverGlowStyle(props.mainColor, props.secondaryColor)}
   }
+   
 `;

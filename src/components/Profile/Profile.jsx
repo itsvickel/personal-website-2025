@@ -5,6 +5,11 @@ import { color } from '../../style/Color';
 import { fontSize } from '../../style/fontSize';
 import SocialMediaBar from '../SocialMediaBar/SocialMediabar';
 
+import VickelResume from '../../assets/Resume/Vickel-Leung-Resume-2025.pdf';
+
+import { glowStyle, hoverGlowStyle } from '../../style/styles';
+
+
 function Profile(props) { 
   const Name = "Vickel Leung";
   return (
@@ -15,15 +20,18 @@ function Profile(props) {
             {Name}
           </ProfileName>
           <SocialMediaBar/>
-          <ResumeLink>Get my resume!</ResumeLink>
+          <ResumeBtn>
+            <ResumeWrap >
+            <ResumeLink href={VickelResume} alt="Vickel-Leung-Resume-2025" download >Get my resume!</ResumeLink>
+            </ResumeWrap>
+          </ResumeBtn>
         </MainComponent>
 
         {props.home ? props.home : null}
         {props.about ? props.about : null}
         {props.work ? props.work : null}
         {props.contact ? props.contact : null}
-        {props.hobby ? props.hobby : null}
-
+        {props.portfolio ? props.portfolio : null}
       </ProfileComponent>
   )
 }
@@ -31,7 +39,7 @@ function Profile(props) {
 export default Profile
 
 const ProfileComponent = styled.div`
-  height: 70vh;
+  height: 75vh;
   min-width: 75vw;
   max-width: 75vw;
   background: ${color.main};
@@ -39,7 +47,7 @@ const ProfileComponent = styled.div`
   display: flex;
   border-radius: 20px;
   box-shadow: 10px 5px 5px ${color.lightGrey};
-  z-index: 2
+  z-index: 1;
 `;
 
 const MainComponent = styled.div`
@@ -64,25 +72,24 @@ const ProfileName = styled.div`
   margin: 2% 1%; 
   font-size : ${fontSize.fontSize_3}
 `;
+
 const ProfileLinks = styled.div`
 
 `;
 
-const ResumeLink = styled.div`
-cursor: pointer; 
-transform: translate(-50%,-50%);
-border-radius: 5px;
-background-image: linear-gradient(${color.subtext}, ${color.subtext});
-background-size: 100% 10px;
-background-repeat: no-repeat;
-background-position: 100% 0%;
- transition: background-size .7s, background-position .5s ease-in-out;
+const ResumeLink = styled.a`
+  text-decoration: none;
+  color:  ${color.white};
+`;
 
-&:hover {
-  background-size: 100% 100%;
-  background-position: 0% 100%;
-  transition: background-position .7s, background-size .5s ease-in-out;
-  padding: 2%;
-}
+const ResumeWrap = styled.div`
+  ${glowStyle(color.white)}
 
+  &:hover { 
+    ${hoverGlowStyle('#3B7BA3','#FFFFFF')}
+  }
+`;
+
+const ResumeBtn = styled.div`
+  margin: 3% 0;
 `;
