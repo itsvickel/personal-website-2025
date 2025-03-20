@@ -8,7 +8,7 @@ import Contact from '../../assets/contact-mail.png';
 import Work from '../../assets/briefcase.png';
 import User from '../../assets/user.png';
 
-import { color } from '../../style/Color';
+import { color } from '../../style/color';
 import { constants } from '../../style/constant';
 
 import { useNavigate } from "react-router-dom";
