@@ -5,10 +5,9 @@ import { color } from '../../style/Color';
 function LinkItem(props) { 
 
   return (
-      <LinkContainer >
+      <LinkContainer target="_blank" href={props.href}>
           {/* <p>{props.name} </p> */}
           <img src={props.img} />
-          <a href={props.href} />
       </LinkContainer>
        
   )
@@ -16,7 +15,7 @@ function LinkItem(props) {
 
 export default LinkItem
 
-const LinkContainer = styled.div`
+const LinkContainer = styled.a`
   margin: 2%;
   padding: 4%;
   border: 1px solid ${color.white};

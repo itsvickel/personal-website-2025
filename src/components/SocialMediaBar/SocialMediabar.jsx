@@ -22,7 +22,7 @@ function SocialMediaBar(props) {
     {
       img: email,
       name: "Email",
-      href: "vickelleung@gmail.com"
+      href: "mailto:vickelleung@gmail.com"
     },
   ]
 
