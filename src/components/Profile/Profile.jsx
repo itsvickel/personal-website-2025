@@ -7,6 +7,9 @@ import SocialMediaBar from '../SocialMediaBar/SocialMediabar';
 
 import VickelResume from '../../assets/Resume/Vickel-Leung-Resume-2025.pdf';
 
+import { glowStyle, hoverGlowStyle } from '../../style/styles';
+
+
 function Profile(props) { 
   const Name = "Vickel Leung";
   return (
@@ -18,7 +21,9 @@ function Profile(props) {
           </ProfileName>
           <SocialMediaBar/>
           <ResumeBtn>
+            <ResumeWrap >
             <ResumeLink href={VickelResume} alt="Vickel-Leung-Resume-2025" download >Get my resume!</ResumeLink>
+            </ResumeWrap>
           </ResumeBtn>
         </MainComponent>
 
@@ -73,30 +78,16 @@ const ProfileLinks = styled.div`
 `;
 
 const ResumeLink = styled.a`
-cursor: pointer;
-padding: 10px 20px;
-text-transform: uppercase;
-border-radius: 8px;
-font-size: 17px;
-font-weight: 500;
-color: #ffffff80;
-text-shadow: none;
-background: transparent;
-cursor: pointer;
-box-shadow: transparent;
-border: 1px solid #ffffff80;
-transition: 0.5s ease;
-user-select: none;
+  text-decoration: none;
+  color:  ${color.white};
+`;
 
-&:hover {
-  color: #ffffff;
-  background: #3B7BA3;
-  border: 1px solid #3B7BA3;
-  text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
-  box-shadow: 0 0 5px #3B7BA3, 0 0 20px #3B7BA3, 0 0 50px #3B7BA3,
-    0 0 100px #3B7BA3;
-  font-size: 18px;
-}
+const ResumeWrap = styled.div`
+  ${glowStyle(color.white)}
+
+  &:hover { 
+    ${hoverGlowStyle('#3B7BA3','#FFFFFF')}
+  }
 `;
 
 const ResumeBtn = styled.div`
