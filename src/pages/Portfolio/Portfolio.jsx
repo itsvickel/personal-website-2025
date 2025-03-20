@@ -6,7 +6,7 @@ import Skeleton from '@mui/material/Skeleton';
 
 import axios from 'axios';
 import { fontSize } from '../../style/fontSize';
-import { color } from '../../style/Color';
+import { color } from '../../style/color';
 
 import ImageZoom from '../../components/ImageZoom/ImageZoom';
 

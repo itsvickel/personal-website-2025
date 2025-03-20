@@ -1,4 +1,4 @@
-import { color } from "./Color";
+import { color } from "./color";
 
 export const constants = {
     defaultPageStyle : {

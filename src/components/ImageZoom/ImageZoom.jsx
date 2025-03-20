@@ -1,6 +1,6 @@
 import { useState } from 'react';  
 import styled from 'styled-components';
-import { color } from '../../style/Color';
+import { color } from '../../style/color';
 
 import Modal from '@mui/material/Modal';
 import { fontSize } from '../../style/fontSize';

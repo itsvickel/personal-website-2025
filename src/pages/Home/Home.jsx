@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from 'react'  
 
 import styled from 'styled-components';
-import { color } from '../../style/Color';
+import { color } from '../../style/color';
 import { fontSize } from '../../style/fontSize';
 import {loadFull} from "tsparticles";
 import { TypeAnimation } from 'react-type-animation';

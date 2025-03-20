@@ -1,6 +1,6 @@
 import { useState } from 'react'  
 import styled from 'styled-components';
-import { color } from '../../style/Color';
+import { color } from '../../style/color';
 import Chip from '../../components/Chip/Chip';
 import { fontSize } from '../../style/fontSize';
 

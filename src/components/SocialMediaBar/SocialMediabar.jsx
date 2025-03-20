@@ -6,7 +6,7 @@ import LinkItem from '../LinkItem/LinkItem';
 import github from '../../assets/github-sign.png';
 import instagram from '../../assets/instagram.png';
 import email from '../../assets/email.png';
-import { color } from '../../style/Color';
+import { color } from '../../style/color';
 
 function SocialMediaBar(props) { 
   let socialLinks = [

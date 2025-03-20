@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import { ToastContainer, toast } from 'react-toastify';
 
 import styled from 'styled-components';
-import { color } from '../../style/Color';
+import { color } from '../../style/color';
 import { fontSize } from '../../style/fontSize';
 
 import emailjs from 'emailjs-com';
