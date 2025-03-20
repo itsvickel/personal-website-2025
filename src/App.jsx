@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react' 
 import styled from 'styled-components';
-import { color } from './style/Color';
+import { color } from './style/color';
 import Profile from './components/Profile/Profile';
 import AboutMe from './pages/AboutMe/AboutMe';
 import NavigationBar from './components/NavigationBar/NavigationDesktop';
