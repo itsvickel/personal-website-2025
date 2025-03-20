@@ -46,9 +46,9 @@ function NavigationBar() {
     //   link: "/project"
     // },
     {
-      name: "Hobby",
+      name: "Portfolio",
       image: Hobby,
-      link: '/hobby'
+      link: '/portfolio'
     },
     {
       name: "Contact",
@@ -60,13 +60,13 @@ function NavigationBar() {
   return (
            
     <Dock>
-    {items.map((src, index) =>
+    {items.map((src) =>
       src ? (
         <DockCard key={src}>
           <Card link={src.link} src={src.image} />
         </DockCard>
       ) : (
-        <DockDivider key={index} />
+        <DockDivider />
       )
     )}
   </Dock>

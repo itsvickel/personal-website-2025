@@ -80,7 +80,6 @@ export const DockCard = ({ children }: DockCardProps) => {
   const isAnimating = React.useRef(false)
 
   const handleClick = (res) => {
-    console.log(res)
     navigate(res.props.link);
     if (!isAnimating.current) {
       isAnimating.current = true

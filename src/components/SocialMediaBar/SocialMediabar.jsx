@@ -6,23 +6,30 @@ import LinkItem from '../LinkItem/LinkItem';
 import github from '../../assets/github-sign.png';
 import instagram from '../../assets/instagram.png';
 import email from '../../assets/email.png';
+import { color } from '../../style/Color';
 
 function SocialMediaBar(props) { 
   let socialLinks = [
     {
       img: instagram,
       name: "Instagram",
-      href: "https://www.instagram.com/vick3l"
+      href: "https://www.instagram.com/vick3l",
+      mainColor: color.purpleDD2A7B,
+      secondaryColor: color.purpleDD2A7B
     },
     {
       img : github,
       name: "Github",
-      href: "https://www.github.com/itsvickel"
+      href: "https://www.github.com/itsvickel",
+      mainColor: color.black,
+      secondaryColor: color.purpleDD2A7B
     },
     {
       img: email,
       name: "Email",
-      href: "vickelleung@gmail.com"
+      href: "mailto:vickelleung@gmail.com",
+      mainColor: color.orangeFC490B,
+      secondaryColor: color.purpleDD2A7B
     },
   ]
 
@@ -35,6 +42,8 @@ function SocialMediaBar(props) {
                 name = {link.name}
                 img = {link.img}
                 href = {link.href}
+                mainColor = {link.mainColor}
+                secondaryColor = {link.secondaryColor}
               />
             )})
           }
@@ -50,3 +59,4 @@ const SocialContainer = styled.div`
   flex-direction: row;
   justify-content: center;
 `;
+

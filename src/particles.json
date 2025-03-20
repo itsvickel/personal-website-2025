@@ -20,7 +20,7 @@
           "quantity": 4
         },
         "repulse": {
-          "distance": 200,
+          "distance": 100,
           "duration": 0.4
         }
       }
@@ -54,7 +54,7 @@
         "density": {
           "enable": true
         },
-        "value": 100
+        "value": 250
       },
       "opacity": {
         "value": 0.2
@@ -64,7 +64,7 @@
       },
       "size": {
         "random": true,
-        "value": 2
+        "value": 1
       }
     }
   }

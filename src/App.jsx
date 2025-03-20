@@ -1,11 +1,11 @@
 import { useState, useEffect, useMemo } from 'react' 
 import styled from 'styled-components';
 import { color } from './style/Color';
-import Profile from './components/Profile/profile';
+import Profile from './components/Profile/Profile';
 import AboutMe from './pages/AboutMe/AboutMe';
 import NavigationBar from './components/NavigationBar/NavigationDesktop';
 import ContactMe from './pages/ContactMe/ContactMe';
-import Hobby from './pages/Hobby/Hobby';
+import Portfolio from './pages/Portfolio/Portfolio';
 import Resume from './pages/Resume/Resume';
 import Home from './pages/Home/Home';
 
@@ -36,13 +36,12 @@ function App(props) {
         home={props.page === '' ? <Home /> : null}
         about={props.page === 'about' ? <AboutMe /> : null}
         work={props.page === 'resume' ? <Resume /> : null}
-        hobby={props.page === 'hobby' ? <Hobby /> : null}
+        portfolio={props.page === 'portfolio' ? <Portfolio /> : null}
         contact={props.page === 'contact' ? <ContactMe /> : null}
         // project={props.page === 'project' ? <Project /> : null}
       />
       
       <NavigationBar />  
-      <Particles />  
     </MainComponent>
   )
 }
