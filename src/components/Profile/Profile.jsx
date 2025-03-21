@@ -9,29 +9,31 @@ import VickelResume from '../../assets/Resume/Vickel-Leung-Resume-2025.pdf';
 
 import { glowStyle, hoverGlowStyle } from '../../style/styles';
 
+import profileImg from "../../assets/profileImage.jpg";
 
 function Profile(props) { 
   const Name = "Vickel Leung";
   return (
       <ProfileComponent>
-        <MainComponent>
-          <ProfileImg src="https://gratisography.com/wp-content/uploads/2025/02/gratisography-when-pigs-fly-1170x780.jpg"/>
-          <ProfileName>
-            {Name}
-          </ProfileName>
-          <SocialMediaBar/>
-          <ResumeBtn>
-            <ResumeWrap >
-            <ResumeLink href={VickelResume} alt="Vickel-Leung-Resume-2025" download >Get my resume!</ResumeLink>
-            </ResumeWrap>
-          </ResumeBtn>
-        </MainComponent>
+          <MainComponent>
+            <ProfileImg src={profileImg}/>
+            <ProfileName>
+              {Name}
+            </ProfileName>
+            <SocialMediaBar/>
+            <ResumeBtn>
+              <ResumeWrap >
+              <ResumeLink href={VickelResume} alt="Vickel-Leung-Resume-2025" download >Get my resume!</ResumeLink>
+              </ResumeWrap>
+            </ResumeBtn>
+          </MainComponent>
 
-        {props.home ? props.home : null}
-        {props.about ? props.about : null}
-        {props.work ? props.work : null}
-        {props.contact ? props.contact : null}
-        {props.portfolio ? props.portfolio : null}
+          {props.home ? props.home : null}
+          {props.about ? props.about : null}
+          {props.work ? props.work : null}
+          {props.contact ? props.contact : null}
+          {props.portfolio ? props.portfolio : null}
+
       </ProfileComponent>
   )
 }
@@ -50,6 +52,7 @@ const ProfileComponent = styled.div`
   z-index: 1;
 `;
 
+
 const MainComponent = styled.div`
   width: 100%;
   display: flex;
@@ -58,6 +61,11 @@ const MainComponent = styled.div`
   flex-direction: column;
   margin: 4% 2%;
   text-align: center;
+
+  @media only screen and (max-width: 800px){
+    display: none;
+  }
+
 `;
 
 const Test = styled.div``;

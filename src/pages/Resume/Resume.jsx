@@ -15,6 +15,7 @@ import Chip from '../../components/Chip/Chip';
 
 import Slide from '@mui/material/Slide';
 import Grow from '@mui/material/Grow';
+import { constants } from '../../style/constant';
 
 function Resume() { 
 
@@ -162,18 +163,7 @@ function Resume() {
 export default Resume
 
 const Container = styled.div`
-  overflow: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: black;
-  max-height: 70vh;
-  min-width: 50vw;
-  max-width: 50vw;
-  padding: 2%;
-  background: ${color.white};
-  border-radius: 20px;
-  box-shadow: 10px 5px 5px ${color.lightGrey};
+  ${constants.defaultPageStyle};
 `;
 
 const Title = styled.div`

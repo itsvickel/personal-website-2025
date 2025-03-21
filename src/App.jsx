@@ -54,4 +54,10 @@ const MainComponent = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media only screen and (max-width: 800px){
+    height: 80vh;
+    overflow: auto;
+  }
+
 `;

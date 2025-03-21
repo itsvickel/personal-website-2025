@@ -186,7 +186,11 @@ const ContactInformation = styled.div`
 const Label = styled.div`
   font-size: ${fontSize.fontSize_1_5};
 `;
-const Image = styled.img``;
+const Image = styled.img`
+  max-width: 100%;
+  height: auto;
+`;
+
 const Description = styled.div`
   margin: 1%;
   color: ${color.grey808080};

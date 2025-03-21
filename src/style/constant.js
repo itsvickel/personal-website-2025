@@ -1,6 +1,7 @@
 import { color } from "./color";
 
 export const constants = {
+
     defaultPageStyle : {
         display:'flex',
         flexDirection: 'column',
@@ -13,8 +14,23 @@ export const constants = {
         background: `${color.white}`,
         borderRadius: '20px',
         boxShadow: `10px 5px 5px ${color.lightGrey}`,
-        overflow: 'auto'
+        overflow: 'auto',
+        
+        '@media screen and (max-width: 768px)': {
+            minWidth: '80vw',
+          }
     },
 
-    
+    responsiveness: {
+        mobile : {
+            maxWidth: "480px", 
+        },    
+        Phablet : {
+            maxWidth: "720px", 
+        },
+        tablet : {
+            maxWidth: "768px", 
+        },
+    }
+
 }
