@@ -28,7 +28,7 @@ function SocialMediaBar(props) {
       img: email,
       name: "Email",
       href: "mailto:vickelleung@gmail.com",
-      mainColor: color.orangeFC490B,
+      mainColor: color.green32de84,
       secondaryColor: color.purpleDD2A7B
     },
   ]
