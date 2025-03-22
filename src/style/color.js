@@ -24,4 +24,5 @@ export const color = {
     grey808080 : "#808080",
     blueADD8E6: "#ADD8E6",
     purpleDD2A7B : "#DD2A7B",
+    green32de84 : "#32de84",
 }

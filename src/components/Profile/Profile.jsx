@@ -74,10 +74,11 @@ const ProfileImg = styled.img`
   max-width: 15em;
   max-height: 15em;
   border-radius: 15px;
+  margin: 2% 0;
 `;
 const ProfileName = styled.div`
   width: 100%;
-  margin: 2% 1%; 
+  margin: 2% 0; 
   font-size : ${fontSize.fontSize_3}
 `;
 

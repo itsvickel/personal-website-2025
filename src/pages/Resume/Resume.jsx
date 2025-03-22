@@ -72,32 +72,29 @@ function Resume() {
       "Developed advanced UI/UX in React.js with reusable components and optimized state management for a seamless user experience.",
       "Collaborated in Agile Scrum teams, ensuring efficient sprints, quick issue resolution, and timely feature delivery.",
     ],
-    Skylow :[
-      "Architected a scalable front-end using React, Redux, optimized routing, and i18n translation.Led the development of a portal app for bookings, live chat, and automated support, boosting user engagement by 50%.",
-      "Led the development of a portal app for bookings, live chat, and automated support, boosting user engagement by 50%.",
-      "Implemented WebSockets for real-time chat and notifications, enhancing responsiveness.",
-      "Directed the migration of 80% of mobile features to web, increasing accessibility and retention.",
-      "Designed intuitive UI/UX with optimized user flows and reusable components.",
-      "Drove agile development in Scrum teams, ensuring on-time delivery through sprint planning and stand-ups."
+    Skylow :[ 
+      "Assessed, developed, and managed software projects to align with weekly deliverables and objectives",
+      "Engineered solutions tailored to client requirements and strategic business goals.",
+      "Led collaborative peer reviews to refine, optimize, and rigorously test newly implemented features.", 
      ],
   }
 
   const works = [
     {
       name: "Portable EHR",
-      date: "2022-2025",
+      date: "Apr 2022 - Feb 2025",
       role: "Software Developer",
       description: jobDescription.portablEHR
     },
     {
       name: "Geothentic",
-      date: "2020-2022",
+      date: "Mar 2020- Feb 2022",
       role: "Software Developer",
       description: jobDescription.Geothentic
     },
     {
       name: "Skylow",
-      date: "2019-2019",
+      date: "Jan 2019 - Nov 2019",
       role: "Software Developer",
       description: jobDescription.Skylow 
     }
@@ -146,7 +143,7 @@ function Resume() {
           <ResumeDescription>
               {
                 selectedDescription.map((item, index)=>{
-                  return   <BulletPoint>{item}</BulletPoint>     
+                  return   <BulletPoint>⦿ {item}</BulletPoint>     
                     
                 })
               }   
@@ -179,11 +176,11 @@ const ResumeContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-bottom: auto;
+  margin-bottom: auto; 
 `;
 
 const ResumeItem = styled.div`
-  width: 12vw;
+  width: 14vw;
   height: 8vh;
   padding: 2%;
   margin: 2%;   

@@ -21,7 +21,7 @@ function Home() {
                     5000, // Waits 1s
                     ' 3D artist', // Deletes 'One' and types 'Two'
                     5000, // Waits 2s
-                    ' Avid Card collector', // Types 'Three' without deleting 'Two'
+                    ' Weight lifter', // Types 'Three' without deleting 'Two'
                  
                 ]}
                 wrapper="span"
