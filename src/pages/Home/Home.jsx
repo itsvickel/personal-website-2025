@@ -55,7 +55,7 @@ const Title = styled.div`
 const Subtitle = styled.div`
     color: ${color.lightGrey};
     margin: 1%;
-    font-size: ${fontSize.fontSize_2};
+    font-size: ${fontSize.fontSize_3};
 `;
 
 const ParticleContainer = styled.div`

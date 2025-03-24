@@ -50,6 +50,11 @@ const ProfileComponent = styled.div`
   border-radius: 20px;
   box-shadow: 10px 5px 5px ${color.lightGrey};
   z-index: 1;
+
+    @media only screen and (max-width: 800px){
+    background-color: transparent;
+    box-shadow: 10px 5px 5px transparent;
+  }
 `;
 
 
@@ -67,25 +72,22 @@ const MainComponent = styled.div`
   }
 
 `;
-
-const Test = styled.div``;
-
+ 
 const ProfileImg = styled.img`
   max-width: 15em;
   max-height: 15em;
   border-radius: 15px;
-  margin: 2% 0;
+  margin: 2% 0;  
+ 
 `;
 const ProfileName = styled.div`
   width: 100%;
   margin: 2% 0; 
-  font-size : ${fontSize.fontSize_3}
-`;
+  font-size : ${fontSize.fontSize_5}
 
-const ProfileLinks = styled.div`
 
 `;
-
+  
 const ResumeLink = styled.a`
   text-decoration: none;
   color:  ${color.white};

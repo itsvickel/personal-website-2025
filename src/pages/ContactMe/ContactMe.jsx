@@ -151,7 +151,7 @@ const Captcha = styled.div``;
 const Header = styled.div``;
 
 const Title = styled.div`
-  font-size: ${fontSize.fontSize_2}
+  font-size: ${fontSize.fontSize_3}
 `
 
 const Highligth = styled.span`
@@ -177,6 +177,7 @@ const ContactWrapper  = styled.div`
 const ContactInformation = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: center;
     
   & : hover{
     opacity: 0.5;
@@ -184,7 +185,7 @@ const ContactInformation = styled.div`
 `;
 
 const Label = styled.div`
-  font-size: ${fontSize.fontSize_1_5};
+  font-size: ${fontSize.fontSize_2_5};
 `;
 const Image = styled.img`
   max-width: 100%;
@@ -194,10 +195,11 @@ const Image = styled.img`
 const Description = styled.div`
   margin: 1%;
   color: ${color.grey808080};
-  font-size: ${fontSize.fontSize_1_2};
+  font-size: ${fontSize.fontSize_1_5};
 `;
 
 const ContactItemContainer = styled.a`
+  height: fit-content;
   margin: 2%;
   padding: 3%;
   width: 12vw;

@@ -126,7 +126,7 @@ const Subtext = styled.div`
 const Link = styled.a``;
 
 const Title = styled.div`
-  font-size: ${fontSize.fontSize_2}
+  font-size: ${fontSize.fontSize_3}
 `
 
 const Highligth = styled.span`

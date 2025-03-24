@@ -21,7 +21,7 @@ const ChipContainer = styled.div`
   border-radius: 10px;
   display: flex;
   flex-direction: row;
-  font-size: ${fontSize.fontSize_1_3};
+  font-size: ${fontSize.fontSize_2 };
   color: ${color.white};
   background: ${props => props.color };
   align-items: center;

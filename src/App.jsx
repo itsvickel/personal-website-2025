@@ -9,6 +9,8 @@ import Portfolio from './pages/Portfolio/Portfolio';
 import Resume from './pages/Resume/Resume';
 import Home from './pages/Home/Home';
 
+import { Analytics } from '@vercel/analytics/next';
+
 import particlesOptions from "./particles.json";
 import Particles, {initParticlesEngine} from "@tsparticles/react";
 import {loadFull} from "tsparticles";
@@ -31,7 +33,7 @@ function App(props) {
 
         </Particles>
         }
-    
+       <Analytics />
       <Profile 
         home={props.page === '' ? <Home /> : null}
         about={props.page === 'about' ? <AboutMe /> : null}
@@ -56,8 +58,7 @@ const MainComponent = styled.div`
   align-items: center;
 
   @media only screen and (max-width: 800px){
-    height: 80vh;
-    overflow: auto;
+    background: none;
   }
 
 `;
