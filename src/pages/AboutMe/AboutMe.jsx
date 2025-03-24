@@ -111,7 +111,7 @@ const Container = styled.div`
 `
 
 const Title = styled.div`
-  font-size: ${fontSize.fontSize_2}
+  font-size: ${fontSize.fontSize_3}
 `
 
 const Highligth = styled.span`
@@ -119,10 +119,10 @@ const Highligth = styled.span`
 `
 const MainTitle = styled.div`
   margin: 2% 0;
-  font-size : ${fontSize.fontSize_1_5};
+  font-size : ${fontSize.fontSize_2_5};
 `
 const Bio = styled.div`
-  font-size : ${fontSize.fontSize_1_3};
+  font-size : ${fontSize.fontSize_2};
   color: ${color.grey808080};
 `
 
@@ -130,12 +130,12 @@ const Image = styled.img``;
 
 const SubTitle = styled.div`
   font-weight: bold;
-  font-size: ${fontSize.fontSize_1_5}
+  font-size: ${fontSize.fontSize_2_5}
 `;
 
 const Description = styled.div`
   margin: 1%;
-  font-size: ${fontSize.fontSize_1_3};
+  font-size: ${fontSize.fontSize_2};
   color: ${color.grey808080};
 `;
 

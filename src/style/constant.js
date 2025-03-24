@@ -16,7 +16,7 @@ export const constants = {
         boxShadow: `10px 5px 5px ${color.lightGrey}`,
         overflow: 'auto',
         
-        '@media screen and (max-width: 768px)': {
+        '@media screen and (max-width: 800px)': {
             minWidth: '80vw',
           }
     },

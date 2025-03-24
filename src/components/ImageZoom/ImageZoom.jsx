@@ -56,13 +56,13 @@ const Image = styled.img`
 
 const Caption  = styled.div`
   margin: 2% 0;
-  font-size: ${fontSize.fontSize_1_5};
+  font-size: ${fontSize.fontSize_2_5};
 `;
 
 const CloseButton = styled.div`
   margin-left: auto; 
   margin-right: 0;
-  font-size: ${fontSize.fontSize_1_5};
+  font-size: ${fontSize.fontSize_2_5};
   font-weight: bold;
 
   &: hover {

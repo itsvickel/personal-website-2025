@@ -131,7 +131,7 @@ function Resume() {
                       >
                 <RowContainer selected={selectedItem === item.name} >
                   <JobTitle>{item.name}</JobTitle>
-                  <div>{item.date}</div>
+                  <JobDate>{item.date}</JobDate>
                 </RowContainer>
                   {item.role}
               </ResumeItem>
@@ -164,7 +164,7 @@ const Container = styled.div`
 `;
 
 const Title = styled.div`
-  font-size: ${fontSize.fontSize_2};
+  font-size: ${fontSize.fontSize_3};
   
 `
 
@@ -177,6 +177,10 @@ const ResumeContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   margin-bottom: auto; 
+
+  @media only screen and (max-width: 800px){ 
+    flex-direction: row;
+  }
 `;
 
 const ResumeItem = styled.div`
@@ -186,10 +190,14 @@ const ResumeItem = styled.div`
   margin: 2%;   
   border-radius: 10px;
   color: ${props => props.selected ? color.white : color.main };
-  font-size: ${fontSize.fontSize_1_2}
+  font-size: ${fontSize.fontSize_1_5}
   display: flex;
   flex-direction: column;
   background: ${props => props.selected ? color.subtext : color.greyE8E8E8 };
+  
+  @media only screen and (max-width: 800px){ 
+    width: 100%;
+  }
 `;
 
 const RowContainer = styled.div`
@@ -197,6 +205,10 @@ const RowContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   color: ${props => props.selected ? color.white : color.main };
+
+  @media only screen and (max-width: 800px){ 
+    flex-direction: column;
+  }
 `;
 
 const ResumeDescription = styled.div`
@@ -207,8 +219,9 @@ const ResumeDescription = styled.div`
   border-radius: 10px;
   margin: 0 5%;
   padding: 2%;
-  font-size: ${fontSize.fontSize_1_5};
+  font-size: ${fontSize.fontSize_2_5};
   background: ${color.greyF5F5F5};
+  
 `;
 
 const Header = styled.div`
@@ -218,6 +231,10 @@ const Header = styled.div`
 const ProgrammingLanguage = styled.div`
   display: flex;
   flex-direction: row;
+
+  @media only screen and (max-width: 800px){ 
+    overflow: auto;
+  }
 `
 
 const Wrapper = styled.div`
@@ -230,6 +247,10 @@ const BulletPoint = styled.div`
 `;
 
 const JobTitle = styled.div`
-  font-size: ${fontSize.fontSize_1_2};
+  font-size: ${fontSize.fontSize_2};
+  font-weight: bold;
+`;
+const JobDate = styled.div`
+  font-size: ${fontSize.fontSize_1_5};
   font-weight: bold;
 `;
