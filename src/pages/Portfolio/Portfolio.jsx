@@ -12,6 +12,7 @@ import ImageZoom from '../../components/ImageZoom/ImageZoom';
 
 import Slide from '@mui/material/Slide';
 import { constants } from '../../style/constant';
+import { glowStyle, hoverGlowStyle } from '../../style/styles';
 
 const api = axios.create({
   baseURL: 'https://graph.instagram.com/me/media?fields=id,caption,media_url,media_type,timestamp&limit=30&access_token=' + import.meta.env.VITE_REACT_APP_INSTAGRAM_ID})
@@ -46,8 +47,6 @@ const [skeletonItems, setSkeletonsItems] = useState([]);
         <Container>
           <Header>
             <Title>My <Highligth>Portfolio</Highligth></Title>
-            <Subtext>This is my 3D art portfolio, feel free to follow me!</Subtext>
-            <Link href="https://www.instagram.com/vick3l" >Click here to see more</Link>
           </Header>
 
           <InstagramPostContainer>
@@ -74,6 +73,7 @@ const [skeletonItems, setSkeletonsItems] = useState([]);
                 return item;
               })
             }
+              <Link href="https://www.instagram.com/vick3l" >Click here to see more</Link>
           </InstagramPostContainer>
           {
             isModal ?  <ImageZoom data={zoomedData} isOpen={isModal} handleClose={()=> setIsModal(false) } /> : null
@@ -91,12 +91,14 @@ const Container = styled.div`
 
 const Header = styled.div`
   margin-right: auto;
+  margin: 2% 0;
 `;
 
 const InstagramPostContainer = styled.div`
   display: flex;
   flex-wrap: wrap; 
   overflow-y: auto;
+  place-content: center;
 `;
 
 const Item = styled.div`
@@ -123,7 +125,16 @@ const Subtext = styled.div`
   color: ${color.grey808080};
 `;
 
-const Link = styled.a``;
+const Link = styled.a` 
+  text-decoration: none;
+  color: ${color.blue001834};
+
+  ${glowStyle(color.blue2196F3)}
+
+  &:hover { 
+    ${hoverGlowStyle(color.blue2196F3, color.white)}
+  }
+`;
 
 const Title = styled.div`
   font-size: ${fontSize.fontSize_3}

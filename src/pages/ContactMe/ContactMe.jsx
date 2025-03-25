@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 
 import { ToastContainer, toast } from 'react-toastify';
 
-import styled from 'styled-components';
+import styled, {keyframes, css} from 'styled-components';
 import { color } from '../../style/color';
 import { fontSize } from '../../style/fontSize';
 
@@ -25,6 +25,20 @@ const ContactItem = (item, index) =>{
     <Description> {item.description}</Description>
   </ContactItemContainer>
 }
+
+const animation = keyframes`
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1), 0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1), 0 0 0 60px rgba(255, 255, 255, 0.1);
+  }
+
+  100% {
+    box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1), 0 0 0 60px rgba(255, 255, 255, 0.1), 0 0 0 80px rgba(255, 255, 255, 0);
+  }
+`;
+
+const rippleAnimation = css`
+  ${animation} 0.6s linear infinite;
+`
 
 function ContactMe() { 
   const [isCaptchaCleared, setIsCaptchaCleared] = useState(false);
@@ -123,7 +137,11 @@ function ContactMe() {
 
               <Captcha></Captcha>
               
-              <Button variant="outlined" type="submit" key={'submit'}>Submit</Button>
+              <Submit type="submit" key={'submit'}>
+                <I />
+                Submit
+                <I />
+                </Submit>
 
             </form>
           </ContactForm>
@@ -220,3 +238,33 @@ const ContactItemContainer = styled.a`
   }
 
 `;
+
+const Submit = styled.button`
+  outline: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  background: ${color.blue2196F3};
+  min-width: 200px;
+  border: 0;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
+  box-sizing: border-box;
+  padding: 16px 20px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  overflow: hidden;
+  cursor: pointer;
+
+  &: hover {
+    font-size: ${fontSize.fontSize_1_5};
+    box-shadow: 0 0 5px red, inset 0 0 10px red;
+  }
+`
+const I = styled.i`
+
+animation: ${rippleAnimation}
+`

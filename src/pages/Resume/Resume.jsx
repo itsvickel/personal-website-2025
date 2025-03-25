@@ -252,7 +252,7 @@ const ProgrammingLanguage = styled.div`
 
 const Wrapper = styled.div`
   align-items: left;
-  margin: 2%;
+  margin: 2% 0;
 `;
 
 const BulletPoint = styled.div`
