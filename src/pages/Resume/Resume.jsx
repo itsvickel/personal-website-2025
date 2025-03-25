@@ -1,4 +1,4 @@
-import { useState } from 'react'  
+import { useState } from 'react'
 import styled from 'styled-components';
 
 import { color } from '../../style/color'
@@ -18,49 +18,49 @@ import { constants } from '../../style/constant';
 
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-function Resume() { 
+function Resume() {
 
   const TechStacks = [
     {
-      image : javascriptImg,
+      image: javascriptImg,
       name: "Javascript",
       color: color.yellow
     },
     {
-      image :css3Img,
+      image: css3Img,
       name: "CSS3",
       color: color.blue2196F3
     },
     {
-      image :htmlImg,
+      image: htmlImg,
       name: "HTML5",
       color: color.blue264de4
     },
     {
-      image :reactImg ,
+      image: reactImg,
       name: "ReactJS",
       color: color.blue61DBFB
     },
     {
-      image :javaImg,
+      image: javaImg,
       name: "Java",
       color: color.brown
-    },  
+    },
     {
-      image :figmaImg,
+      image: figmaImg,
       name: "Figma",
       color: color.orangeFC490B
-    }, 
+    },
     {
-      image : photoshop,
+      image: photoshop,
       name: "Photoshop",
       color: color.blue001834
-    }, 
+    },
   ]
- 
+
 
   const jobDescription = {
-    portablEHR :[
+    portablEHR: [
       "Architected a scalable front-end using React, Redux, optimized routing, and i18n translation.Led the development of a portal app for bookings, live chat, and automated support, boosting user engagement by 50%.",
       "Led the development of a portal app for bookings, live chat, and automated support, boosting user engagement by 50%.",
       "Implemented WebSockets for real-time chat and notifications, enhancing responsiveness.",
@@ -68,16 +68,16 @@ function Resume() {
       "Designed intuitive UI/UX with optimized user flows and reusable components.",
       "Drove agile development in Scrum teams, ensuring on-time delivery through sprint planning and stand-ups.",
     ],
-    Geothentic :[
+    Geothentic: [
       "Integrated WebSockets for real-time fleet tracking, improving data accuracy and reducing latency by 40%.",
       "Developed advanced UI/UX in React.js with reusable components and optimized state management for a seamless user experience.",
       "Collaborated in Agile Scrum teams, ensuring efficient sprints, quick issue resolution, and timely feature delivery.",
     ],
-    Skylow :[ 
+    Skylow: [
       "Assessed, developed, and managed software projects to align with weekly deliverables and objectives",
       "Engineered solutions tailored to client requirements and strategic business goals.",
-      "Led collaborative peer reviews to refine, optimize, and rigorously test newly implemented features.", 
-     ],
+      "Led collaborative peer reviews to refine, optimize, and rigorously test newly implemented features.",
+    ],
   }
 
   const works = [
@@ -89,7 +89,7 @@ function Resume() {
     },
     {
       name: "Geothentic",
-      date: "Mar 2020- Feb 2022",
+      date: "Mar 2020 - Feb 2022",
       role: "Full Stack Developer",
       description: jobDescription.Geothentic
     },
@@ -97,22 +97,22 @@ function Resume() {
       name: "Skylow",
       date: "Jan 2019 - Nov 2019",
       role: "Web Developer",
-      description: jobDescription.Skylow 
+      description: jobDescription.Skylow
     }
   ]
 
   const [selectedDescription, setSelectedDescription] = useState(works[0].description);
   const [selectedItem, setSelectedItem] = useState(works[0]);
-  
+
   const matches = useMediaQuery('(max-width:600px)');
 
   return (
-    <Slide direction={'down'} in={true}> 
+    <Slide direction={'down'} in={true}>
       <Container>
         <Wrapper>
           <Title>Tech <Highligth>Stacks</Highligth></Title>
           <ProgrammingLanguage>
-            {TechStacks.map((item, index)=>{
+            {TechStacks.map((item, index) => {
               return <Chip key={index} img={item.image} name={item.name} color={item.color} />
             })}
           </ProgrammingLanguage>
@@ -123,43 +123,45 @@ function Resume() {
           <Title>Employment <Highligth>History</Highligth></Title>
         </Header>
 
-      <RowContainer>
-        <ResumeContainer>
-          {
-            works.map((item, index) =>{
-              return <ResumeItem selected={selectedItem.name === item.name} 
-                        onClick={
-                          ()=>{setSelectedDescription(item.description); 
-                            setSelectedItem(item)} } 
-                        key={index}
-                      >
-                <RowContainer selected={selectedItem.name === item.name} >
-                  <JobTitle>{item.name}</JobTitle>
-                  <JobDate>{item.date}</JobDate>
-                   
-                </RowContainer>
-                  {!matches ? item.role : null }
-              </ResumeItem>
-              
-            })
-          }
-        </ResumeContainer>
- 
-         <JobRole>{matches && selectedItem ? selectedItem.role : null}</JobRole>
-          <ResumeDescription> 
-              {
-                selectedDescription.map((item, index)=>{
-                  return   <BulletPoint>⦿ {item}</BulletPoint>     
-                    
-                })
-              }   
-          </ResumeDescription> 
-   
-      </RowContainer>
+        <RowContainer>
+          <ResumeContainer>
+            {
+              works.map((item, index) => {
+                return <ResumeItem selected={selectedItem.name === item.name}
+                  onClick={
+                    () => {
+                      setSelectedDescription(item.description);
+                      setSelectedItem(item)
+                    }}
+                  key={index}
+                >
+                  <RowContainer selected={selectedItem.name === item.name} >
+                    <JobTitle>{item.name}</JobTitle>
+                    <JobDate>{item.date}</JobDate>
+
+                  </RowContainer>
+                  {!matches ? item.role : null}
+                </ResumeItem>
+
+              })
+            }
+          </ResumeContainer>
+
+          <JobRole>{matches && selectedItem ? selectedItem.role : null}</JobRole>
+          <ResumeDescription>
+            {
+              selectedDescription.map((item, index) => {
+                return <BulletPoint>⦿ {item}</BulletPoint>
+
+              })
+            }
+          </ResumeDescription>
+
+        </RowContainer>
 
 
-    </Container>
-  </Slide>
+      </Container>
+    </Slide>
   )
 }
 
@@ -195,11 +197,11 @@ const ResumeItem = styled.div`
   padding: 2%;
   margin: 2%;   
   border-radius: 10px;
-  color: ${props => props.selected ? color.white : color.main };
+  color: ${props => props.selected ? color.white : color.main};
   font-size: ${fontSize.fontSize_1_5}
   display: flex;
   flex-direction: column;
-  background: ${props => props.selected ? color.subtext : color.greyE8E8E8 };
+  background: ${props => props.selected ? color.subtext : color.greyE8E8E8};
   
   @media only screen and (max-width: 800px){ 
     width: 100%;
@@ -210,7 +212,7 @@ const RowContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  color: ${props => props.selected ? color.white : color.main };
+  color: ${props => props.selected ? color.white : color.main};
 
   @media only screen and (max-width: 800px){ 
     flex-direction: column;
