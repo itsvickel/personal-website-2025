@@ -17,7 +17,10 @@ export const constants = {
         overflow: 'auto',
         
         '@media screen and (max-width: 800px)': {
-            minWidth: '80vw',
+            margin: '4% 0',
+            minWidth: '90vw',
+            padding: '4%',
+            height: 'inherit',
           }
     },
 

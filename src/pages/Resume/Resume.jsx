@@ -14,8 +14,9 @@ import photoshop from '../../assets/adobe-photoshop.png';
 import Chip from '../../components/Chip/Chip';
 
 import Slide from '@mui/material/Slide';
-import Grow from '@mui/material/Grow';
 import { constants } from '../../style/constant';
+
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 function Resume() { 
 
@@ -89,20 +90,22 @@ function Resume() {
     {
       name: "Geothentic",
       date: "Mar 2020- Feb 2022",
-      role: "Software Developer",
+      role: "Full Stack Developer",
       description: jobDescription.Geothentic
     },
     {
       name: "Skylow",
       date: "Jan 2019 - Nov 2019",
-      role: "Software Developer",
+      role: "Web Developer",
       description: jobDescription.Skylow 
     }
   ]
 
   const [selectedDescription, setSelectedDescription] = useState(works[0].description);
-  const [selectedItem, setSelectedItem] = useState('Portable EHR');
+  const [selectedItem, setSelectedItem] = useState(works[0]);
   
+  const matches = useMediaQuery('(max-width:600px)');
+
   return (
     <Slide direction={'down'} in={true}> 
       <Container>
@@ -124,30 +127,33 @@ function Resume() {
         <ResumeContainer>
           {
             works.map((item, index) =>{
-              return <ResumeItem selected={selectedItem === item.name} 
+              return <ResumeItem selected={selectedItem.name === item.name} 
                         onClick={
-                          ()=>{setSelectedDescription(item.description); setSelectedItem(item.name)} } 
+                          ()=>{setSelectedDescription(item.description); 
+                            setSelectedItem(item)} } 
                         key={index}
                       >
-                <RowContainer selected={selectedItem === item.name} >
+                <RowContainer selected={selectedItem.name === item.name} >
                   <JobTitle>{item.name}</JobTitle>
                   <JobDate>{item.date}</JobDate>
+                   
                 </RowContainer>
-                  {item.role}
+                  {!matches ? item.role : null }
               </ResumeItem>
+              
             })
           }
         </ResumeContainer>
-
-   <Grow style={ { timeout: 25000 }}  direction={'up'} in={true}>
-          <ResumeDescription>
+ 
+         <JobRole>{matches && selectedItem ? selectedItem.role : null}</JobRole>
+          <ResumeDescription> 
               {
                 selectedDescription.map((item, index)=>{
                   return   <BulletPoint>⦿ {item}</BulletPoint>     
                     
                 })
               }   
-          </ResumeDescription></Grow>
+          </ResumeDescription> 
    
       </RowContainer>
 
@@ -208,6 +214,7 @@ const RowContainer = styled.div`
 
   @media only screen and (max-width: 800px){ 
     flex-direction: column;
+    overflow-y: scroll;
   }
 `;
 
@@ -221,7 +228,11 @@ const ResumeDescription = styled.div`
   padding: 2%;
   font-size: ${fontSize.fontSize_2_5};
   background: ${color.greyF5F5F5};
-  
+
+  @media only screen and (max-width: 800px){ 
+    margin: 2%; 
+  }
+
 `;
 
 const Header = styled.div`
@@ -234,6 +245,8 @@ const ProgrammingLanguage = styled.div`
 
   @media only screen and (max-width: 800px){ 
     overflow: auto;
+    flex-wrap: wrap;
+    place-content: center;
   }
 `
 
@@ -252,5 +265,10 @@ const JobTitle = styled.div`
 `;
 const JobDate = styled.div`
   font-size: ${fontSize.fontSize_1_5};
+  font-weight: bold;
+`;
+
+const JobRole = styled.div`
+  font-size: ${fontSize.fontSize_3};
   font-weight: bold;
 `;
