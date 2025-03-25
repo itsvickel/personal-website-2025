@@ -139,7 +139,7 @@ function Resume() {
           }
         </ResumeContainer>
 
-   <Grow style={ { timeout: 25000 }}  direction={'up'} in={true}>
+        <Grow style={ { timeout: 25000 }}  direction={'up'} in={true}>
           <ResumeDescription>
               {
                 selectedDescription.map((item, index)=>{
@@ -147,7 +147,8 @@ function Resume() {
                     
                 })
               }   
-          </ResumeDescription></Grow>
+          </ResumeDescription>
+        </Grow>
    
       </RowContainer>
 
@@ -208,6 +209,7 @@ const RowContainer = styled.div`
 
   @media only screen and (max-width: 800px){ 
     flex-direction: column;
+    overflow-y: scroll;
   }
 `;
 
@@ -221,7 +223,11 @@ const ResumeDescription = styled.div`
   padding: 2%;
   font-size: ${fontSize.fontSize_2_5};
   background: ${color.greyF5F5F5};
-  
+
+  @media only screen and (max-width: 800px){ 
+    margin: 2%; 
+  }
+
 `;
 
 const Header = styled.div`
@@ -234,6 +240,7 @@ const ProgrammingLanguage = styled.div`
 
   @media only screen and (max-width: 800px){ 
     overflow: auto;
+    flex-wrap: wrap;
   }
 `
 
