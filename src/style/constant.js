@@ -18,9 +18,9 @@ export const constants = {
         
         '@media screen and (max-width: 800px)': {
             margin: '4% 0',
-            height: '100vh', 
-            minWidth: '100%',
-            maxWidth: '100%',
+            minWidth: '90vw',
+            padding: '4%',
+            height: 'inherit',
           }
     },
 

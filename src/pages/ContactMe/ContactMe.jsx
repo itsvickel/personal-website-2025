@@ -199,7 +199,7 @@ const Description = styled.div`
 `;
 
 const ContactItemContainer = styled.a`
-  height: fit-content;
+
   margin: 2%;
   padding: 3%;
   width: 12vw;
@@ -212,4 +212,11 @@ const ContactItemContainer = styled.a`
   color: ${color.main};
   align-items: center;
   text-decoration: none;
+
+  @media only screen and (max-width: 800px){ 
+    height: auto;
+    margin: 1%;
+    padding: 2% 6%;
+  }
+
 `;

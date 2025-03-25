@@ -54,6 +54,7 @@ const ProfileComponent = styled.div`
     @media only screen and (max-width: 800px){
     background-color: transparent;
     box-shadow: 10px 5px 5px transparent;
+    justify-content: center;
   }
 `;
 
