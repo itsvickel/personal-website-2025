@@ -5,20 +5,20 @@ import Button from '@mui/material/Button';
 
 import { ToastContainer, toast } from 'react-toastify';
 
-import styled from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { color } from '../../style/color';
 import { fontSize } from '../../style/fontSize';
 
 import emailjs from 'emailjs-com';
 
-import smartphone from '../../assets/smartphone.png';
+import smartphone from '../../assets/telephone.png';
 import email from '../../assets/mail.png';
 import location from '../../assets/location.png';
 
 import Grow from '@mui/material/Grow';
 import { constants } from '../../style/constant';
 
-const ContactItem = (item, index) =>{
+const ContactItem = (item, index) => {
   return <ContactItemContainer href={item.href} key={index}>
     <Image src={item.img} />
     <Label> {item.label}</Label>
@@ -26,32 +26,46 @@ const ContactItem = (item, index) =>{
   </ContactItemContainer>
 }
 
-function ContactMe() { 
+const animation = keyframes`
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1), 0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1), 0 0 0 60px rgba(255, 255, 255, 0.1);
+  }
+
+  100% {
+    box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1), 0 0 0 60px rgba(255, 255, 255, 0.1), 0 0 0 80px rgba(255, 255, 255, 0);
+  }
+`;
+
+const rippleAnimation = css`
+  ${animation} 0.6s linear infinite;
+`
+
+function ContactMe() {
   const [isCaptchaCleared, setIsCaptchaCleared] = useState(false);
   const form = useRef();
 
   const SERVICE_ID = import.meta.env.VITE_REACT_APP_EMAILJS_SERVICE_ID;
   const TEMPLATE_ID = import.meta.env.VITE_REACT_APP_EMAILJS_TEMPLATE_ID;
-  const PUBLIC_KEY =  import.meta.env.VITE_REACT_APP_EMAILJS_PUBLIC_ID;
+  const PUBLIC_KEY = import.meta.env.VITE_REACT_APP_EMAILJS_PUBLIC_ID;
 
   const contactInfo = [
     {
       img: email,
       label: "Email Address",
       description: "Vickelleung@gmail.com",
-      href:"mailto:Vickelleung@gmail.com"
+      href: "mailto:Vickelleung@gmail.com"
     },
     {
       img: smartphone,
       label: "Phone Number",
       description: "(514) 815-8638",
-      href:"tel:514-815-8638"
+      href: "tel:514-815-8638"
     },
     {
       img: location,
       label: "Location",
       description: "Saint-Jean-sur-Richelieu",
-      href:"https://maps.app.goo.gl/wG9Sn5Sg4Yy7Wtjk9"
+      href: "https://maps.app.goo.gl/wG9Sn5Sg4Yy7Wtjk9"
     },
   ]
 
@@ -60,7 +74,7 @@ function ContactMe() {
 
   const sendEmail = (e) => {
     e.preventDefault();
-    
+
     emailjs
       .sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
       .then(
@@ -76,54 +90,58 @@ function ContactMe() {
       );
   };
 
-  const textfieldStyle = {margin: '1%'};
+  const textfieldStyle = { margin: '1%' };
 
   return (
     <Grow style={{ transitionDelay: '100ms' }} in={true}>
       <ContactContainer>
         <Header>
-        <Title>Contact <Highligth>Me</Highligth></Title>
+          <Title>Contact <Highligth>Me</Highligth></Title>
         </Header>
         <ContactWrapper>
           <ContactInformation>
-            {contactInfo.map((item, index)=>{
+            {contactInfo.map((item, index) => {
               return ContactItem(item, index);
             })}
           </ContactInformation>
 
           <Title>Send me a <Highligth>Message</Highligth></Title>
           <ContactForm>
-          <form ref={form} onSubmit={sendEmail}> 
-        
-            <FormContainer>
-             
+            <form ref={form} onSubmit={sendEmail}>
+
+              <FormContainer>
+
                 <TextFieldItem
                   sx={textfieldStyle}
                   key={'name'}
-                  name="user_name" 
-                  label="What is your name?" 
+                  name="user_name"
+                  label="What is your name?"
                 />
-                
+
                 <TextFieldItem
                   sx={textfieldStyle}
                   key={'email'}
                   name="user_email"
-                  label="What is your email address?" 
+                  label="What is your email address?"
                 />
 
                 <TextFieldItem
                   sx={textfieldStyle}
-                  key="message" 
+                  key="message"
                   name="message"
                   multiline
                   rows={4}
-                  label="Write your message here..." 
+                  label="Write your message here..."
                 />
-            </FormContainer>
+              </FormContainer>
 
               <Captcha></Captcha>
-              
-              <Button variant="outlined" type="submit" key={'submit'}>Submit</Button>
+
+              <Submit type="submit" key={'submit'}>
+                <I />
+                Submit
+                <I />
+              </Submit>
 
             </form>
           </ContactForm>
@@ -131,7 +149,7 @@ function ContactMe() {
 
         <ToastContainer autoClose={5000} />
       </ContactContainer>
-      </Grow>
+    </Grow>
   )
 }
 
@@ -162,12 +180,12 @@ const FormContainer = styled.div`
   flex-direction: column;
 `;
 
-const TextFieldItem  = styled(TextField)`
+const TextFieldItem = styled(TextField)`
   padding: 10%;
   margin: 2%;
 `;
 
-const ContactWrapper  = styled.div`
+const ContactWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -220,3 +238,33 @@ const ContactItemContainer = styled.a`
   }
 
 `;
+
+const Submit = styled.button`
+  outline: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  background: ${color.blue2196F3};
+  min-width: 200px;
+  border: 0;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
+  box-sizing: border-box;
+  padding: 16px 20px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  overflow: hidden;
+  cursor: pointer;
+
+  &: hover {
+    font-size: ${fontSize.fontSize_1_5};
+    box-shadow: 0 0 5px red, inset 0 0 10px red;
+  }
+`
+const I = styled.i`
+
+animation: ${rippleAnimation}
+`

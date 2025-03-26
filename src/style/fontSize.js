@@ -12,4 +12,12 @@ export const fontSize = {
     fontSize_3: "3vh",
     fontSize_4: "4vh",
     fontSize_5: "5vh",
+
+    fontSize_7: "6vh",
+
+    fontSize_7: "7vh",
+
+    fontSize_8: "8vh",
+
+    fontSize_10: "10vh",
 }
