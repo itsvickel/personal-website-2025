@@ -14,6 +14,7 @@ import IntroCurtain from '../IntroCurtain/IntroCurtain';
 
 function Profile(props) { 
   const Name = "Vickel Leung";
+  
   return (
       <ProfileComponent>
 

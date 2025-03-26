@@ -16,8 +16,20 @@ import IntroCurtain from './components/IntroCurtain/IntroCurtain';
 
 function App(props) { 
   const [init, setInit] = useState(false);
+  
+  const [showIntrocreen, setShowIntrocreen] = useState(
+    () => !JSON.parse(sessionStorage.getItem("showedIntrocreen"))
+  );
 
   useEffect(() => { 
+
+    setTimeout(() => {
+      // Update local state to trigger component rerender
+      setShowIntrocreen(false);
+      // Update localStorage for next time app is mounted
+      sessionStorage.setItem("showedIntrocreen", JSON.stringify(true));
+    }, 5000);
+
     initParticlesEngine(async (engine) => {
         await loadFull(engine);
     }).then(() => {
@@ -27,21 +39,26 @@ function App(props) {
 
   return (
     <MainComponent> 
-      
-   
-        {init && <Particles  
-          options={particlesOptions}>
-        </Particles>
-        }
-      <Profile 
-        home={props.page === '' ? <Home /> : null}
-        about={props.page === 'about' ? <AboutMe /> : null}
-        work={props.page === 'resume' ? <Resume /> : null}
-        portfolio={props.page === 'portfolio' ? <Portfolio /> : null}
-        contact={props.page === 'contact' ? <ContactMe /> : null}
-        // project={props.page === 'project' ? <Project /> : null}
-      />
-      <NavigationBar />       <IntroCurtain />
+      {showIntrocreen ? (
+        <IntroCurtain />
+        ) : (
+       init && 
+       <>
+        <Particles  
+            options={particlesOptions}>
+          </Particles>
+        <Profile 
+          home={props.page === '' ? <Home /> : null}
+          about={props.page === 'about' ? <AboutMe /> : null}
+          work={props.page === 'resume' ? <Resume /> : null}
+          portfolio={props.page === 'portfolio' ? <Portfolio /> : null}
+          contact={props.page === 'contact' ? <ContactMe /> : null}
+          // project={props.page === 'project' ? <Project /> : null}
+        />
+        <NavigationBar />    
+      </>   
+      )
+      }
     </MainComponent>
   )
 }
@@ -50,7 +67,7 @@ export default App
 
 const MainComponent = styled.div`
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   background: ${color.background};
   display: flex;
   justify-content: center;
