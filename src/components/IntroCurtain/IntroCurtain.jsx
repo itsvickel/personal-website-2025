@@ -169,12 +169,10 @@ function IntroCurtain() {
 export default IntroCurtain
 
 const Wrap = styled.div`
-    position: fixed;  
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100vh;
-    z-index: 2;
 `;
 
 const IntroCurtainContainer = styled.div`
@@ -197,7 +195,7 @@ const Wrapper = styled.div`
 const Text = styled.div`
     font-family: "Monument Extended";
     font-weight: lighter;
-    font-size: 10vh;
+    font-size: 7vh;
     opacity: 0;
 
     ${props => props.isOdd ? 'color: rgba(0, 0, 0, 0); -webkit-text-stroke: 1px white;' : null}
