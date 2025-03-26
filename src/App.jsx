@@ -12,6 +12,7 @@ import Home from './pages/Home/Home';
 import particlesOptions from "./particles.json";
 import Particles, {initParticlesEngine} from "@tsparticles/react";
 import {loadFull} from "tsparticles";
+import IntroCurtain from './components/IntroCurtain/IntroCurtain';
 
 function App(props) { 
   const [init, setInit] = useState(false);
@@ -26,9 +27,10 @@ function App(props) {
 
   return (
     <MainComponent> 
+      
+   
         {init && <Particles  
           options={particlesOptions}>
-
         </Particles>
         }
       <Profile 
@@ -39,8 +41,7 @@ function App(props) {
         contact={props.page === 'contact' ? <ContactMe /> : null}
         // project={props.page === 'project' ? <Project /> : null}
       />
-      
-      <NavigationBar />  
+      <NavigationBar />       <IntroCurtain />
     </MainComponent>
   )
 }
@@ -49,6 +50,7 @@ export default App
 
 const MainComponent = styled.div`
   height: 100vh;
+  width: 100vw;
   background: ${color.background};
   display: flex;
   justify-content: center;

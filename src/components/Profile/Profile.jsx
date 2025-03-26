@@ -10,11 +10,13 @@ import VickelResume from '../../assets/Resume/Vickel-Leung-Resume-2025.pdf';
 import { glowStyle, hoverGlowStyle } from '../../style/styles';
 
 import profileImg from "../../assets/profileImage.jpg";
+import IntroCurtain from '../IntroCurtain/IntroCurtain';
 
 function Profile(props) { 
   const Name = "Vickel Leung";
   return (
       <ProfileComponent>
+
           <MainComponent>
             <ProfileImg src={profileImg}/>
             <ProfileName>
