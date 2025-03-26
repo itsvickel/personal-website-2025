@@ -13,50 +13,19 @@ function Home() {
     const firstName = ["V", "I", "C", "K", "E", "L",];
     const lastName = ["L", "E", "U", "N", "G",];
 
-    // const name = [
-    //     {
-    //         firstChar: "V",
-    //         secondChar: "G"
-    //     },
-    //     {
-    //         firstChar: "I",
-    //         secondChar: "N"
-    //     },
-    //     {
-    //         firstChar: "C",
-    //         secondChar: "U"
-    //     },
-    //     {
-    //         firstChar: "K",
-    //         secondChar: "E"
-    //     },
-    //     {
-    //         firstChar: "E",
-    //         secondChar: "L"
-    //     },
-    //     {
-    //         firstChar: "L",
-    //         secondChar: ""
-    //     },
-    // ]
-
     return (
         <Container>
 
             <Header>
-                {/* <Title>Vickel Leung</Title> */}
-
                 <RowContainer>
                     <MirrowTextContainer>
                         {firstName.map((item, index) => {
-                            console.log(item);
                             return <MirrorText key={index} letter={item} />
                         })}
                     </MirrowTextContainer>
 
                     <MirrowTextContainer>
                         {lastName.map((item, index) => {
-                            console.log(item);
                             return <MirrorText key={index} letter={item} />
                         })}
                     </MirrowTextContainer>

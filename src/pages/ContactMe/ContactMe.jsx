@@ -260,8 +260,8 @@ const Submit = styled.button`
   cursor: pointer;
 
   &: hover {
-    font-size: ${fontSize.fontSize_1_5};
-    box-shadow: 0 0 5px red, inset 0 0 10px red;
+    font-size: ${fontSize.fontSize_1_4};
+    box-shadow: 0 0 10px ${color.blue2196F3}, inset 0 0 10px ${color.white};
   }
 `
 const I = styled.i`
