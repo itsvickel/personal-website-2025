@@ -10,9 +10,9 @@ const MirrorTextItem = (props) => {
         <Letter>
             {props.letter}
         </Letter>
-        <Shadow>
+        {/* <Shadow>
             {props.letter}
-        </Shadow>
+        </Shadow> */}
     </Wrapper>
 }
 
