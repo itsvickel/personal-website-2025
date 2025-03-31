@@ -15,6 +15,7 @@ import smartphone from '../../assets/telephone.png';
 import email from '../../assets/mail.png';
 import location from '../../assets/location.png';
 
+import RippleButton from '../../components/RippleButton/RippleButton';
 import Grow from '@mui/material/Grow';
 import { constants } from '../../style/constant';
 
@@ -25,21 +26,7 @@ const ContactItem = (item, index) => {
     <Description> {item.description}</Description>
   </ContactItemContainer>
 }
-
-const animation = keyframes`
-  0% {
-    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1), 0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1), 0 0 0 60px rgba(255, 255, 255, 0.1);
-  }
-
-  100% {
-    box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1), 0 0 0 60px rgba(255, 255, 255, 0.1), 0 0 0 80px rgba(255, 255, 255, 0);
-  }
-`;
-
-const rippleAnimation = css`
-  ${animation} 0.6s linear infinite;
-`
-
+ 
 function ContactMe() {
   const [isCaptchaCleared, setIsCaptchaCleared] = useState(false);
   const form = useRef();
@@ -137,11 +124,7 @@ function ContactMe() {
 
               <Captcha></Captcha>
 
-              <Submit type="submit" key={'submit'}>
-                <I />
-                Submit
-                <I />
-              </Submit>
+              <RippleButton type={'submit'} key={'submit'}>Submit</RippleButton>
 
             </form>
           </ContactForm>
@@ -238,33 +221,4 @@ const ContactItemContainer = styled.a`
   }
 
 `;
-
-const Submit = styled.button`
-  outline: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  background: ${color.blue2196F3};
-  min-width: 200px;
-  border: 0;
-  border-radius: 4px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
-  box-sizing: border-box;
-  padding: 16px 20px;
-  color: #fff;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-  overflow: hidden;
-  cursor: pointer;
-
-  &: hover {
-    font-size: ${fontSize.fontSize_1_4};
-    box-shadow: 0 0 10px ${color.blue2196F3}, inset 0 0 10px ${color.white};
-  }
-`
-const I = styled.i`
-
-animation: ${rippleAnimation}
-`
+ 

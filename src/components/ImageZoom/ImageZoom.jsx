@@ -46,7 +46,7 @@ const ImageContent = styled.div`
   margin: auto; /* 15% from the top and centered */
   padding: 2%;
   border: 1px solid #888;
-  width: 50%; /* Could be more or less, depending on screen size */
+  width: 70vw; /* Could be more or less, depending on screen size */
 `;
 
 const Image = styled.img`

@@ -18,6 +18,10 @@ import { constants } from '../../style/constant';
 
 import useMediaQuery from '@mui/material/useMediaQuery';
 
+import RippleButton from '../../components/RippleButton/RippleButton';
+
+import VickelResume from '../../assets/Resume/Vickel-Leung-Resume-2025.pdf';
+
 function Resume() {
 
   const TechStacks = [
@@ -106,6 +110,15 @@ function Resume() {
 
   const matches = useMediaQuery('(max-width:600px)');
 
+  const downloadCV = () => {
+    const anchor = document.createElement('a')
+    anchor.href = VickelResume
+    anchor.download = VickelResume.split('/').pop()
+    document.body.appendChild(anchor)
+    anchor.click()
+    document.body.removeChild(anchor)
+  }
+
   return (
     <Slide direction={'down'} in={true}>
       <Container>
@@ -157,9 +170,11 @@ function Resume() {
             }
           </ResumeDescription>
 
+           {matches ? <RippleButton onClick={downloadCV} type={''} key={'CV'}>
+               Get my resume! 
+            </RippleButton>
+            : null} 
         </RowContainer>
-
-
       </Container>
     </Slide>
   )
@@ -221,7 +236,7 @@ const RowContainer = styled.div`
 `;
 
 const ResumeDescription = styled.div`
-  display: flex;
+  display: block;
   justify-content: center;
   flex-direction: column;
   align-items: center;
@@ -230,10 +245,7 @@ const ResumeDescription = styled.div`
   padding: 2%;
   font-size: ${fontSize.fontSize_2_5};
   background: ${color.greyF5F5F5};
-
-  @media only screen and (max-width: 800px){ 
-    margin: 2%; 
-  }
+  overflow-y: scroll;
 
 `;
 
@@ -274,3 +286,4 @@ const JobRole = styled.div`
   font-size: ${fontSize.fontSize_3};
   font-weight: bold;
 `;
+ 

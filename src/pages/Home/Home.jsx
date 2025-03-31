@@ -15,7 +15,6 @@ function Home() {
 
     return (
         <Container>
-
             <Header>
                 <RowContainer>
                     <MirrowTextContainer>
@@ -31,16 +30,15 @@ function Home() {
                     </MirrowTextContainer>
                 </RowContainer>
 
-
                 <Subtitle>I am a
                     <TypeAnimation
                         sequence={[
-                            ' Fullstack Developer', // Types 'One'
-                            5000, // Waits 1s
-                            ' 3D artist', // Deletes 'One' and types 'Two'
-                            5000, // Waits 2s
-                            ' Weight lifter', // Types 'Three' without deleting 'Two'
-
+                            ' Fullstack Developer',  
+                            5000,  
+                            ' 3D artist',  
+                            5000,  
+                            ' Weight lifter', 
+                            5000,  
                         ]}
                         wrapper="span"
                         cursor={true}
@@ -83,6 +81,7 @@ const ParticleContainer = styled.div`
 const RowContainer = styled.div`
     display: flex;
     flex-direction: row;
+    margin: 4% 0;
 `;
 
 const MirrowTextContainer = styled.div`

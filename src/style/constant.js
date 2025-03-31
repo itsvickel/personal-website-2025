@@ -10,15 +10,16 @@ export const constants = {
         minWidth: '50vw',
         maxWidth: '50vw',
         padding: '2%',
-        overflow: 'auto',
         background: `${color.white}`,
         borderRadius: '20px',
         boxShadow: `10px 5px 5px ${color.lightGrey}`,
-        overflow: 'auto',
+        overflowY: 'auto',
         
         '@media screen and (max-width: 800px)': {
+            display: 'fixed',
             margin: '4% 0',
             minWidth: '90vw',
+            maxHeight: '80vh',
             padding: '4%',
             height: 'inherit',
           }
