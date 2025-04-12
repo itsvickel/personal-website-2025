@@ -1,16 +1,28 @@
 import { useState } from 'react'  
 
-import styled from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { color } from '../../style/color';
 import { fontSize } from '../../style/fontSize';
 import SocialMediaBar from '../SocialMediaBar/SocialMediabar';
 
-import VickelResume from '../../assets/Resume/Vickel-Leung-Resume-2025.pdf';
+import VickelResume from "../../assets/Vickel_Leung.pdf";
 
 import { glowStyle, hoverGlowStyle } from '../../style/styles';
 
 import profileImg from "../../assets/profileImage.jpg";
-import IntroCurtain from '../IntroCurtain/IntroCurtain';
+
+const animation = keyframes`
+  0% {
+    background-position: -200% 0; /* Start the shine off-screen to the left */
+  }
+  100% {
+    background-position: 200% 0; /* Move the shine off-screen to the right */
+  }
+`
+
+const getShineAnimation = css`
+  ${animation} 5s infinite linear;
+`
 
 function Profile(props) { 
   const Name = "Vickel Leung";
@@ -19,14 +31,14 @@ function Profile(props) {
       <ProfileComponent>
 
           <MainComponent>
-            <ProfileImg src={profileImg}/>
+              <ProfileImg src={profileImg}/>
             <ProfileName>
-              {Name}
+              <ShineAnimation>{Name}</ShineAnimation>
             </ProfileName>
             <SocialMediaBar/>
             <ResumeBtn>
               <ResumeWrap >
-              <ResumeLink href={VickelResume} alt="Vickel-Leung-Resume-2025" download >Get my resume!</ResumeLink>
+              <ResumeLink href={VickelResume} alt="Vickel-Leung" download >Get my resume!</ResumeLink>
               </ResumeWrap>
             </ResumeBtn>
           </MainComponent>
@@ -82,14 +94,16 @@ const ProfileImg = styled.img`
   max-height: 15em;
   border-radius: 15px;
   margin: 2% 0;  
- 
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
 `;
 const ProfileName = styled.div`
   width: 100%;
   margin: 2% 0; 
-  font-size : ${fontSize.fontSize_5}
-
-
+  font-size : ${fontSize.fontSize_5};
+ 
 `;
   
 const ResumeLink = styled.a`
@@ -107,4 +121,34 @@ const ResumeWrap = styled.div`
 
 const ResumeBtn = styled.div`
   margin: 3% 0;
+`;
+
+const ImageContainer = styled.div`
+  position: relative;
+  width: 300px;
+  height: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: linear-gradient(120deg, transparent 10%, ${color.brown} 50%, transparent 70%);
+  background-size: 200% 100%;
+  animation: ${getShineAnimation};
+`;
+
+const ShineAnimation = styled.div`
+font-size: 1em;
+font-weight: bold;
+margin: 0 auto;
+text-transform: uppercase;
+position: relative;
+display: inline-block;
+color: transparent;
+background: linear-gradient(45deg, rgba(255, 255, 255, 1) 25%, rgba(0, 0, 0, 1) 50%, rgba(255, 255, 255, 1) 75%);
+background-size: 200% 100%;
+-webkit-background-clip: text;
+background-clip: text;
+text-shadow: 0 0px 5px rgba(255, 255, 255, 0.8), 0 0px 10px rgba(255, 255, 255, 0.8);
+
+
+
+animation: ${getShineAnimation};
 `;
